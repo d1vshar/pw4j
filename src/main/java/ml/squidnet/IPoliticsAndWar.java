@@ -2,7 +2,6 @@ package ml.squidnet;
 
 import ml.squidnet.domains.*;
 import ml.squidnet.enums.ResourceType;
-import ml.squidnet.queries.*;
 
 public interface IPoliticsAndWar {
 

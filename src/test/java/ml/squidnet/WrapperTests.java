@@ -3,7 +3,6 @@ package ml.squidnet;
 import ml.squidnet.enums.ResourceType;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
