@@ -6,16 +6,36 @@
 
     <groupId>ml.squidnet</groupId>
     <artifactId>pw4j</artifactId>
-    <version>0.1</version>
-
+    <version>1.0.3</version>
     <name>pw4j</name>
-    <!-- FIXME change it to the project's website -->
-    <urlStr>http://www.example.com</urlStr>
+    <description>Java Wrapper for Politics and War API</description>
+    <packaging>jar</packaging>
+    <url>https://github.com/Adorable-SkullMaster/pw4j</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Adorable-SkullMaster</name>
+            <organizationUrl>https://github.com/Adorable-SkullMaster</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:Adorable-SkullMaster/pw4j.git</connection>
+        <developerConnection>scm:git:git@github.com:Adorable-SkullMaster/pw4j.git</developerConnection>
+        <url>git@github.com:Adorable-SkullMaster/pw4j.git</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -66,5 +86,26 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 </project>
