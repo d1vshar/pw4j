@@ -1,7 +1,7 @@
 package ml.squidnet.queries;
 
 import ml.squidnet.domains.Nation;
-import ml.squidnet.enums.URL;
+import ml.squidnet.enums.QueryURL;
 
 public class NationQuery implements IEntityQuery {
 
@@ -13,7 +13,7 @@ public class NationQuery implements IEntityQuery {
 
   @Override
   public ApiQuery build() {
-    String url = URL.NATION_URL.getUrl().concat("id=").concat(Integer.toString(nid));
+    String url = QueryURL.NATION_URL.getUrl().concat("id=").concat(Integer.toString(nid));
     return new ApiQuery<>(url, new Nation());
   }
 }

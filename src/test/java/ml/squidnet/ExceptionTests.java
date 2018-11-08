@@ -8,13 +8,15 @@ import java.util.Properties;
 public class ExceptionTests {
 
   private PoliticsAndWar politicsAndWar;
-  private PoliticsAndWar politicsAndWar2 = new PoliticsAndWar();
+  private PoliticsAndWar politicsAndWar2;
 
   public ExceptionTests() {
     try {
       Properties properties = new Properties();
       properties.load(getClass().getClassLoader().getResourceAsStream("testData.properties"));
-      politicsAndWar = new PoliticsAndWar(properties.getProperty("apiKey"));
+      politicsAndWar = new PoliticsAndWarBuilder()
+          .setApiKey(properties.getProperty("apiKey"))
+          .build();
     } catch (IOException e) {
       e.printStackTrace();
     }

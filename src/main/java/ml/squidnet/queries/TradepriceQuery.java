@@ -1,8 +1,8 @@
 package ml.squidnet.queries;
 
 import ml.squidnet.domains.Tradeprice;
+import ml.squidnet.enums.QueryURL;
 import ml.squidnet.enums.ResourceType;
-import ml.squidnet.enums.URL;
 
 public class TradepriceQuery implements IEntityQuery {
 
@@ -14,7 +14,7 @@ public class TradepriceQuery implements IEntityQuery {
 
   @Override
   public ApiQuery build() {
-    String url = URL.TRADEPRICE_URL.getUrl().concat("resource=").concat(resource);
+    String url = QueryURL.TRADEPRICE_URL.getUrl().concat("resource=").concat(resource);
     return new ApiQuery<>(url,new Tradeprice());
   }
 }

@@ -2,6 +2,7 @@ package ml.squidnet;
 
 import ml.squidnet.domains.*;
 import ml.squidnet.enums.ResourceType;
+import ml.squidnet.queries.ApiQuery;
 
 public interface IPoliticsAndWar {
 
@@ -28,5 +29,7 @@ public interface IPoliticsAndWar {
   Wars getWars(int wars);
 
   Tradeprice getTradeprice(ResourceType resource);
+
+  Entity execute(ApiQuery apiQuery);
 
 }

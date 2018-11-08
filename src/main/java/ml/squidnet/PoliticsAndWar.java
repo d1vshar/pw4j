@@ -6,14 +6,14 @@ import ml.squidnet.queries.*;
 
 public class PoliticsAndWar implements IPoliticsAndWar {
 
+  private boolean enableCache;
+  private boolean testServerMode;
   private String apiKey;
 
-  public PoliticsAndWar() {
-    this.apiKey = null;
-  }
-
-  public PoliticsAndWar(String apiKey) {
+  PoliticsAndWar(String apiKey, Boolean enableCache, Boolean testServerMode) {
     this.apiKey = apiKey;
+    this.enableCache = enableCache;
+    this.testServerMode = testServerMode;
   }
 
   @Override
@@ -23,56 +23,61 @@ public class PoliticsAndWar implements IPoliticsAndWar {
 
   @Override
   public Nation getNation(int nationId) {
-    return (Nation) new NationQuery(nationId).build().execute().getEntity();
+    return (Nation) execute(new NationQuery(nationId).build());
   }
 
   @Override
   public Nations getNations() {
-    return (Nations) new NationsQuery().build().execute().getEntity();
+    return (Nations) execute(new NationsQuery().build());
   }
 
   @Override
   public Alliance getAlliance(int allianceId) {
-    return (Alliance) new AllianceQuery(allianceId).build().execute().getEntity();
+    return (Alliance) execute(new AllianceQuery(allianceId).build());
   }
 
   @Override
   public Alliances getAlliances() {
-    return (Alliances) new AlliancesQuery().build().execute().getEntity();
+    return (Alliances) execute(new AlliancesQuery().build());
   }
 
   @Override
   public Applicants getApplicants(int allianceId) {
-    return (Applicants) new ApplicantsQuery(allianceId).build().execute().getEntity();
+    return (Applicants) execute(new ApplicantsQuery(allianceId).build());
   }
 
   @Override
   public Bank getBank(int allianceId) {
-    return (Bank) new BankQuery(apiKey,allianceId).build().execute().getEntity();
+    return (Bank) execute(new BankQuery(apiKey, allianceId).build());
   }
 
   @Override
   public Members getMembers(int allianceId) {
-    return (Members) new MembersQuery(apiKey,allianceId).build().execute().getEntity();
+    return (Members) execute(new MembersQuery(apiKey, allianceId).build());
   }
 
   @Override
   public City getCity(int cityId) {
-    return (City) new CityQuery(cityId).build().execute().getEntity();
+    return (City) execute(new CityQuery(cityId).build());
   }
 
   @Override
   public War getWar(int warId) {
-    return (War) new WarQuery(warId).build().execute().getEntity();
+    return (War) execute(new WarQuery(warId).build());
   }
 
   @Override
   public Wars getWars(int wars) {
-    return (Wars) new WarsQuery(wars).build().execute().getEntity();
+    return (Wars) execute(new WarsQuery(wars).build());
   }
 
   @Override
   public Tradeprice getTradeprice(ResourceType resource) {
-    return (Tradeprice) new TradepriceQuery(resource).build().execute().getEntity();
+    return (Tradeprice) execute(new TradepriceQuery(resource).build());
+  }
+
+  @Override
+  public Entity execute(ApiQuery apiQuery) {
+    return apiQuery.execute(testServerMode).getEntity();
   }
 }

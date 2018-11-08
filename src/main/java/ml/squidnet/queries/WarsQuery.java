@@ -1,7 +1,7 @@
 package ml.squidnet.queries;
 
 import ml.squidnet.domains.Wars;
-import ml.squidnet.enums.URL;
+import ml.squidnet.enums.QueryURL;
 
 public class WarsQuery implements IEntityQuery {
 
@@ -17,7 +17,7 @@ public class WarsQuery implements IEntityQuery {
 
   @Override
   public ApiQuery build() {
-    String url = URL.WARS_URL.getUrl();
+    String url = QueryURL.WARS_URL.getUrl();
     if(amount!= -1)
       url = url.concat(Integer.toString(amount));
     return new ApiQuery<>(url,new Wars());

@@ -1,7 +1,7 @@
 package ml.squidnet.queries;
 
 import ml.squidnet.domains.City;
-import ml.squidnet.enums.URL;
+import ml.squidnet.enums.QueryURL;
 
 public class CityQuery implements IEntityQuery {
   private int cid;
@@ -12,7 +12,7 @@ public class CityQuery implements IEntityQuery {
 
   @Override
   public ApiQuery build() {
-    String url = URL.CITY_URL.getUrl().concat("id=").concat(Integer.toString(cid));
+    String url = QueryURL.CITY_URL.getUrl().concat("id=").concat(Integer.toString(cid));
     return new ApiQuery<>(url, new City());
   }
 }

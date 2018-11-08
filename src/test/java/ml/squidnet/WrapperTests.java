@@ -12,12 +12,19 @@ import static org.junit.Assert.assertTrue;
 public class WrapperTests {
 
   private PoliticsAndWar politicsAndWar;
+  private PoliticsAndWar testPoliticsAndWar;
 
   public WrapperTests() {
     try {
       Properties properties = new Properties();
       properties.load(getClass().getClassLoader().getResourceAsStream("testData.properties"));
-      politicsAndWar = new PoliticsAndWar(properties.getProperty("apiKey"));
+      politicsAndWar = new PoliticsAndWarBuilder()
+          .setApiKey(properties.getProperty("apiKey"))
+          .build();
+      testPoliticsAndWar = new PoliticsAndWarBuilder()
+          .setApiKey(properties.getProperty("apiKey"))
+          .setTestServerMode(true)
+          .build();
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -76,5 +83,10 @@ public class WrapperTests {
   @Test
   public void warsQueryTest() {
     assertEquals(50, politicsAndWar.getWars(50).getWars().size());
+  }
+
+  @Test
+  public void testServerQueryTest() {
+    assertEquals("Creaotaria", testPoliticsAndWar.getNation(2703).getName());
   }
 }

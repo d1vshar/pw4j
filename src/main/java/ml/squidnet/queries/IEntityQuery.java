@@ -1,5 +1,5 @@
 package ml.squidnet.queries;
 
-public interface IEntityQuery {
+interface IEntityQuery {
   ApiQuery build();
 }
