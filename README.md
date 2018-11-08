@@ -22,7 +22,7 @@ PoliticsAndWar politicsAndWar = new PoliticsAndWarBuilder().build();
 ```
 or 
 ```java
-PoliticsAndWar politicsAndWar = new PoliticsAndWar().setApiKey("YOUR_API_KEY_STRING").build();
+PoliticsAndWar politicsAndWar = new PoliticsAndWarBuilder().setApiKey("YOUR_API_KEY_STRING").build();
 ```
 
 To use the Test server API,
@@ -31,7 +31,7 @@ PoliticsAndWar politicsAndWar = new PoliticsAndWarBuilder().setTestServerMode(tr
 ```
 or 
 ```java
-PoliticsAndWar politicsAndWar = new PoliticsAndWar().setApiKey("YOUR_API_KEY_STRING").setTestServerMode(true).build();
+PoliticsAndWar politicsAndWar = new PoliticsAndWarBuilder().setApiKey("YOUR_API_KEY_STRING").setTestServerMode(true).build();
 ```
 
 That was the hardest part. :sweat_smile:
