@@ -19,7 +19,10 @@
 
 ## Usage
 
-To start using the wrapper, instantiate a `PoliticsAndWar` object. If you want to access Alliance Members API and Alliance Bank API, you'll have to provide the `apiKey`. But `apiKey` is optional.
+To start using the wrapper, build a `PoliticsAndWar` object using `PoliitcsAndWarBuilder`. If you want to access Alliance Members API and Alliance Bank API, 
+you'll have to provide 
+the 
+`apiKey`. But `apiKey` is optional.
 ```java
 PoliticsAndWar politicsAndWar = new PoliticsAndWarBuilder().build();
 ```
@@ -57,7 +60,6 @@ politicsAndWar.getBank(913); //Where 913 is Alliance ID
 Make an issue [here](https://github.com/Adorable-SkullMaster/pw4j/issues) if you are facing errors, problems, unintended behaviour, need help or to drop a suggestion.
 
 ## Contributing
-Please don't contribute in master branch. PR should be sent to dev branch only. Any PRs directly to master branch will be rejected.
-Clone the repo, make changes in dev branch, start a PR. I'll review the changes and merge it accordingly. I'll be more than happy if you want to improve this wrapper :-)
+Read [CONTRIBUTING.md](CONTRIBUTING.md)
 
 Author: [Adorable-SkullMaster](https://github.com/Adorable-SkullMaster)

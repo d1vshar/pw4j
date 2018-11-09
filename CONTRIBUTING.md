@@ -1,0 +1,4 @@
+- For small bug fixes, directly start a pull request to master.
+- For big bug fixes, start a merge into master from a feature branch.
+- Please explain anything you add in your commit messages.
+- Please prefer to keep your commit atomic, meaning, no more than 1 feature per commit.
