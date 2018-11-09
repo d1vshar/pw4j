@@ -1,12 +1,15 @@
-# pw4j: Politics and War API Java Wrapper
+# pw4j: Java Wrapper for Politics and War API
 ### Alex's APIs Covered:
-- Nation and Nations API
-- Alliances and Alliances API
-- War and Wars API
-- Tradeprice API
-- City API
-- Applicants API
-- Alliance Bank and Members API (`apiKey` needs to be provided by your program)
+* **Unauthenticated APIs:**
+    - Nation and Nations API
+    - Alliances and Alliances API
+    - War and Wars API
+    - Tradeprice API
+    - City API
+    - Applicants API
+* **Authenticated APIs:** *(Require `apiKey`)*
+    - Tradehistory API
+    - Alliance Bank and Members API
 
 ### Features
 - Simple design to handle API requests.
@@ -49,8 +52,6 @@ politicsAndWar.getBank(913); //Where 913 is Alliance ID
 
 ### Missing Features
 - Caching of queries to improve performance
-- Alliance ids in War API
-- Trade-history API
 
 ## Errors and Issues or Suggestions
 Make an issue [here](https://github.com/Adorable-SkullMaster/pw4j/issues) if you are facing errors, problems, unintended behaviour, need help or to drop a suggestion.

@@ -13,7 +13,8 @@ public enum QueryURL {
   MEMBERS_URL("alliance-members/"),
   APPLICANTS_URL("applicants/"),
   CITY_URL("city/"),
-  TRADEPRICE_URL("tradeprice/");
+  TRADEPRICE_URL("tradeprice/"),
+  TRADEHISTORY_URL("trade-history/");
 
   private final String url;
 

@@ -17,6 +17,8 @@ public class ExceptionTests {
       politicsAndWar = new PoliticsAndWarBuilder()
           .setApiKey(properties.getProperty("apiKey"))
           .build();
+      politicsAndWar2 = new PoliticsAndWarBuilder()
+          .build();
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -55,6 +57,11 @@ public class ExceptionTests {
   @Test(expected = PoliticsAndWarAPIException.class)
   public void membersExceptionTest() {
     politicsAndWar.getMembers(2);
+  }
+
+  @Test(expected = PoliticsAndWarAPIException.class)
+  public void tradeHistoryExceptionTest() {
+    politicsAndWar.getTradehistory(0);
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)

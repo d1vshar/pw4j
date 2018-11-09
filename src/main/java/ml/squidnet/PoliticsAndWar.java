@@ -67,13 +67,38 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   }
 
   @Override
-  public Wars getWars(int wars) {
-    return (Wars) execute(new WarsQuery(wars).build());
+  public Wars getWars(int amount) {
+    return (Wars) execute(new WarsQuery(amount, null).build());
+  }
+
+  @Override
+  public Wars getWars(int amount, Integer... alliance_ids) {
+    return (Wars) execute(new WarsQuery(amount, alliance_ids).build());
   }
 
   @Override
   public Tradeprice getTradeprice(ResourceType resource) {
     return (Tradeprice) execute(new TradepriceQuery(resource).build());
+  }
+
+  @Override
+  public Tradehistory getTradehistory() {
+    return (Tradehistory) execute(new TradehistoryQuery(apiKey, null, null).build());
+  }
+
+  @Override
+  public Tradehistory getTradehistory(ResourceType... resources) {
+    return (Tradehistory) execute(new TradehistoryQuery(apiKey, null, resources).build());
+  }
+
+  @Override
+  public Tradehistory getTradehistory(Integer amount) {
+    return (Tradehistory) execute(new TradehistoryQuery(apiKey, amount, null).build());
+  }
+
+  @Override
+  public Tradehistory getTradehistory(Integer amount, ResourceType... resources) {
+    return (Tradehistory) execute(new TradehistoryQuery(apiKey, amount, resources).build());
   }
 
   @Override

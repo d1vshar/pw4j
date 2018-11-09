@@ -83,6 +83,15 @@ public class WrapperTests {
   @Test
   public void warsQueryTest() {
     assertEquals(50, politicsAndWar.getWars(50).getWars().size());
+    assertEquals(50, politicsAndWar.getWars(50, 913).getWars().size());
+  }
+
+  @Test
+  public void tradeHistoryQueryTest() {
+    assertTrue(politicsAndWar.getTradehistory().isSuccess());
+    assertEquals(10, politicsAndWar.getTradehistory(10).getTrades().size());
+    assertEquals(50, politicsAndWar.getTradehistory(50, ResourceType.FOOD, ResourceType.ALUMINUM).getTrades().size());
+    assertTrue(politicsAndWar.getTradehistory(ResourceType.FOOD, ResourceType.ALUMINUM).isSuccess());
   }
 
   @Test

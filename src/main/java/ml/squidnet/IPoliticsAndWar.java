@@ -26,9 +26,19 @@ public interface IPoliticsAndWar {
 
   War getWar(int warId);
 
-  Wars getWars(int wars);
+  Wars getWars(int amount);
+
+  Wars getWars(int amount, Integer[] alliance_ids);
 
   Tradeprice getTradeprice(ResourceType resource);
+
+  Tradehistory getTradehistory();
+
+  Tradehistory getTradehistory(ResourceType[] resources);
+
+  Tradehistory getTradehistory(Integer amount);
+
+  Tradehistory getTradehistory(Integer amount, ResourceType[] resources);
 
   Entity execute(ApiQuery apiQuery);
 
