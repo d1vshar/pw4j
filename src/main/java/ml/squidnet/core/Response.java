@@ -1,8 +1,12 @@
-package ml.squidnet.domains;
+package ml.squidnet.core;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import ml.squidnet.PoliticsAndWarAPIException;
+import ml.squidnet.domains.Alliances;
+import ml.squidnet.domains.Entity;
+import ml.squidnet.domains.Nations;
+import ml.squidnet.domains.Wars;
 
 import java.lang.reflect.Type;
 

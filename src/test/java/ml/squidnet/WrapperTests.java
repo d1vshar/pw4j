@@ -1,5 +1,6 @@
 package ml.squidnet;
 
+import ml.squidnet.core.CacheClient;
 import ml.squidnet.enums.ResourceType;
 import org.junit.Test;
 
@@ -97,5 +98,10 @@ public class WrapperTests {
   @Test
   public void testServerQueryTest() {
     assertEquals("Creaotaria", testPoliticsAndWar.getNation(2703).getName());
+  }
+
+  @Test
+  public void testCache() {
+    CacheClient cacheClient = new CacheClient(5, 10000);
   }
 }

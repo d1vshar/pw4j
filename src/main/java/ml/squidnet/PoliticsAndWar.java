@@ -1,24 +1,21 @@
 package ml.squidnet;
 
+import ml.squidnet.core.QueryExecutor;
 import ml.squidnet.domains.*;
 import ml.squidnet.enums.ResourceType;
 import ml.squidnet.queries.*;
 
 public class PoliticsAndWar implements IPoliticsAndWar {
 
-  private boolean enableCache;
-  private boolean testServerMode;
+  private QueryExecutor executor;
   private String apiKey;
 
-  PoliticsAndWar(String apiKey, Boolean enableCache, Boolean testServerMode) {
+  PoliticsAndWar(String apiKey, Boolean enableCache, Boolean testServerMode, int cacheSize, long cacheRetainTime) {
     this.apiKey = apiKey;
-    this.enableCache = enableCache;
-    this.testServerMode = testServerMode;
-  }
-
-  @Override
-  public boolean checkApi() {
-    return true;
+    if (enableCache)
+      executor = new QueryExecutor(true, testServerMode, cacheSize, cacheRetainTime);
+    else
+      executor = new QueryExecutor(false, testServerMode, cacheSize, cacheRetainTime);
   }
 
   @Override
@@ -101,8 +98,7 @@ public class PoliticsAndWar implements IPoliticsAndWar {
     return (Tradehistory) execute(new TradehistoryQuery(apiKey, amount, resources).build());
   }
 
-  @Override
-  public Entity execute(ApiQuery apiQuery) {
-    return apiQuery.execute(testServerMode).getEntity();
+  private Entity execute(ApiQuery apiQuery) {
+    return executor.execute(apiQuery);
   }
 }

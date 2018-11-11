@@ -1,8 +1,8 @@
 package ml.squidnet.queries;
 
 import ml.squidnet.PoliticsAndWarAPIException;
+import ml.squidnet.core.Response;
 import ml.squidnet.domains.Entity;
-import ml.squidnet.domains.Response;
 import ml.squidnet.enums.QueryURL;
 
 import java.io.IOException;
@@ -12,11 +12,12 @@ import java.net.URL;
 
 public class ApiQuery<T extends Entity> {
 
-  private String urlStr;
+  private String urlPart;
+  private String urlStr = "";
   private T t;
 
-  ApiQuery(String urlStr, T t) {
-    this.urlStr = urlStr;
+  ApiQuery(String urlPart, T t) {
+    this.urlPart = urlPart;
     this.t = t;
   }
 
@@ -25,10 +26,12 @@ public class ApiQuery<T extends Entity> {
     return s.hasNext() ? s.next() : "";
   }
 
-  public Response execute(boolean testServerMode) {
+  public void buildUrlStr(boolean testServerMode) {
     String baseUrl = testServerMode ? QueryURL.TEST_URL.getUrl() : QueryURL.LIVE_URL.getUrl();
-    urlStr = baseUrl.concat(urlStr);
+    urlStr = baseUrl.concat(urlPart);
+  }
 
+  public Response fetchAPI() {
     HttpURLConnection conn = null;
     try {
       URL url = new URL(urlStr);
@@ -36,7 +39,7 @@ public class ApiQuery<T extends Entity> {
       conn.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
       conn.setRequestMethod("GET");
       int respCode = conn.getResponseCode();
-      String respMessage = String.format("Politics and War API returned '%s' from url: %s",respCode + " " + conn.getResponseMessage(),urlStr);
+      String respMessage = String.format("Politics and War API returned '%s' from url: %s", respCode + " " + conn.getResponseMessage(), urlPart);
 
       InputStream stream = conn.getErrorStream();
 
@@ -53,5 +56,9 @@ public class ApiQuery<T extends Entity> {
         conn.disconnect();
       }
     }
+  }
+
+  public String getUrlStr() {
+    return urlStr;
   }
 }
