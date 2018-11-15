@@ -23,7 +23,8 @@
 Please have a look at the [wiki](https://github.com/Adorable-SkullMaster/pw4j/wiki).
 
 ### Missing Features
-- Caching of queries to improve performance
+
+I've added quite a lot of features in last few versions. Please suggest more in issues.
 
 ## Errors and Issues or Suggestions
 Make an issue [here](https://github.com/Adorable-SkullMaster/pw4j/issues) if you are facing errors, problems, unintended behaviour, need help or to drop a suggestion.
