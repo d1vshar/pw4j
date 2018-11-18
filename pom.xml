@@ -6,7 +6,7 @@
 
     <groupId>io.github.adorable-skullmaster</groupId>
     <artifactId>pw4j</artifactId>
-    <version>1.2.1</version> <!-- FIXME version bump -->
+    <version>1.2.2</version> <!-- FIXME version bump -->
     <name>pw4j</name>
     <description>Java Wrapper for Politics and War API</description>
     <packaging>jar</packaging>
