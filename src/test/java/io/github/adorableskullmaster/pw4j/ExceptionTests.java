@@ -61,7 +61,7 @@ public class ExceptionTests {
 
   @Test(expected = PoliticsAndWarAPIException.class)
   public void tradeHistoryExceptionTest() {
-    politicsAndWar.getTradehistory(0);
+    politicsAndWar.getTradehistoryByAmount(0);
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)

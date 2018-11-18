@@ -1,6 +1,5 @@
 package io.github.adorableskullmaster.pw4j;
 
-import io.github.adorableskullmaster.pw4j.core.CacheClient;
 import io.github.adorableskullmaster.pw4j.enums.ResourceType;
 import org.junit.Test;
 
@@ -83,25 +82,22 @@ public class WrapperTests {
 
   @Test
   public void warsQueryTest() {
-    assertEquals(50, politicsAndWar.getWars(50).getWars().size());
+    assertTrue(politicsAndWar.getAllWars().isSuccess());
+    assertEquals(50, politicsAndWar.getWarsByAmount(50).getWars().size());
+    assertTrue(politicsAndWar.getWarsByAlliance(913).isSuccess());
     assertEquals(50, politicsAndWar.getWars(50, 913).getWars().size());
   }
 
   @Test
   public void tradeHistoryQueryTest() {
-    assertTrue(politicsAndWar.getTradehistory().isSuccess());
-    assertEquals(10, politicsAndWar.getTradehistory(10).getTrades().size());
+    assertTrue(politicsAndWar.getAllTradehistory().isSuccess());
+    assertEquals(10, politicsAndWar.getTradehistoryByAmount(10).getTrades().size());
     assertEquals(50, politicsAndWar.getTradehistory(50, ResourceType.FOOD, ResourceType.ALUMINUM).getTrades().size());
-    assertTrue(politicsAndWar.getTradehistory(ResourceType.FOOD, ResourceType.ALUMINUM).isSuccess());
+    assertTrue(politicsAndWar.getTradehistoryByType(ResourceType.FOOD, ResourceType.ALUMINUM).isSuccess());
   }
 
   @Test
   public void testServerQueryTest() {
     assertEquals("Creaotaria", testPoliticsAndWar.getNation(2703).getName());
-  }
-
-  @Test
-  public void testCache() {
-    CacheClient cacheClient = new CacheClient(5, 10000);
   }
 }

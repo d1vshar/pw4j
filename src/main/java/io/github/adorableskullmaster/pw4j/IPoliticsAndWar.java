@@ -23,17 +23,21 @@ public interface IPoliticsAndWar {
 
   War getWar(int warId);
 
-  Wars getWars(int amount);
+  Wars getAllWars();
+
+  Wars getWarsByAmount(int amount);
+
+  Wars getWarsByAlliance(Integer[] alliance_ids);
 
   Wars getWars(int amount, Integer[] alliance_ids);
 
   Tradeprice getTradeprice(ResourceType resource);
 
-  Tradehistory getTradehistory();
+  Tradehistory getAllTradehistory();
 
-  Tradehistory getTradehistory(ResourceType[] resources);
+  Tradehistory getTradehistoryByType(ResourceType[] resources);
 
-  Tradehistory getTradehistory(Integer amount);
+  Tradehistory getTradehistoryByAmount(Integer amount);
 
   Tradehistory getTradehistory(Integer amount, ResourceType[] resources);
 

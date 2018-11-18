@@ -64,8 +64,18 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   }
 
   @Override
-  public Wars getWars(int amount) {
+  public Wars getAllWars() {
+    return (Wars) execute(new WarsQuery(-1, null).build());
+  }
+
+  @Override
+  public Wars getWarsByAmount(int amount) {
     return (Wars) execute(new WarsQuery(amount, null).build());
+  }
+
+  @Override
+  public Wars getWarsByAlliance(Integer... alliance_ids) {
+    return (Wars) execute(new WarsQuery(-1, null).build());
   }
 
   @Override
@@ -79,17 +89,17 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   }
 
   @Override
-  public Tradehistory getTradehistory() {
+  public Tradehistory getAllTradehistory() {
     return (Tradehistory) execute(new TradehistoryQuery(apiKey, null, null).build());
   }
 
   @Override
-  public Tradehistory getTradehistory(ResourceType... resources) {
+  public Tradehistory getTradehistoryByType(ResourceType... resources) {
     return (Tradehistory) execute(new TradehistoryQuery(apiKey, null, resources).build());
   }
 
   @Override
-  public Tradehistory getTradehistory(Integer amount) {
+  public Tradehistory getTradehistoryByAmount(Integer amount) {
     return (Tradehistory) execute(new TradehistoryQuery(apiKey, amount, null).build());
   }
 

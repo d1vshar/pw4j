@@ -29,25 +29,25 @@ public class CacheTest {
   @Test
   public void cacheSizeTest() {
     for (int i = 1; i <= 31; i++)
-      politicsAndWar.getWars(i);
+      politicsAndWar.getWarsByAmount(i);
 
     System.out.println("Testing removed Entity");
-    politicsAndWar.getWars(1);
+    politicsAndWar.getWarsByAmount(1);
     System.out.println("Testing outdated Entity");
-    politicsAndWar.getWars(5);
+    politicsAndWar.getWarsByAmount(5);
     System.out.println("Testing existing Entity");
-    politicsAndWar.getWars(50);
+    politicsAndWar.getWarsByAmount(50);
   }
 
   @Test
   public void cacheTimeExpireTest() {
-    politicsAndWar.getWars(1);
+    politicsAndWar.getWarsByAmount(1);
     System.out.println("Sleeping for 65000 ms.");
     try {
       Thread.sleep(6500);
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-    politicsAndWar.getWars(2);
+    politicsAndWar.getWarsByAmount(2);
   }
 }

@@ -9,13 +9,13 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class CacheClient {
+class CacheClient {
   private final int CACHE_MAX_SIZE;
   private final long CACHE_RETAIN_TIME;
   private Map<String, Entity> cacheMap;
   private Map<String, Instant> timeMap;
 
-  public CacheClient(int cacheSize, long cacheRetainTime) {
+  CacheClient(int cacheSize, long cacheRetainTime) {
     this.CACHE_MAX_SIZE = cacheSize;
     this.CACHE_RETAIN_TIME = cacheRetainTime;
     cacheMap = Collections.synchronizedMap(new ConcurrentHashMap<>(cacheSize + 1, 1F));
@@ -28,7 +28,6 @@ public class CacheClient {
       removeOldest();
     cacheMap.put(url, entity);
     timeMap.put(url, Instant.now());
-    LogClient.LOGGER.debug("Added to Cache: " + url + " | " + cacheStats());
   }
 
   boolean contains(String url) {
@@ -37,7 +36,6 @@ public class CacheClient {
   }
 
   Entity getIfExists(String url) {
-    LogClient.LOGGER.debug("Returned from Cache: " + url + " | " + cacheStats());
     return cacheMap.get(url);
   }
 
@@ -49,7 +47,6 @@ public class CacheClient {
           cacheMap.remove(entry.getKey());
           timeMap.remove(entry.getKey());
         });
-    LogClient.LOGGER.debug("Cache Limit reached. Removing Oldest." + " | " + cacheStats());
   }
 
   private void update() {
@@ -59,7 +56,6 @@ public class CacheClient {
       if ((now.getEpochSecond() - entry.getValue().getEpochSecond()) > (CACHE_RETAIN_TIME / 1000)) {
         it.remove();
         cacheMap.remove(entry.getKey());
-        LogClient.LOGGER.debug("Removing from Cache due to Time expired: " + entry.getKey() + " | " + cacheStats());
       }
     }
   }
