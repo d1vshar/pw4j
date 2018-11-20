@@ -18,40 +18,40 @@ public class AllianceBankContent {
   private int resourceTaxrate;
   @SerializedName("money")
   @Expose
-  private int money;
+  private double money;
   @SerializedName("food")
   @Expose
-  private int food;
+  private double food;
   @SerializedName("coal")
   @Expose
-  private int coal;
+  private double coal;
   @SerializedName("oil")
   @Expose
-  private int oil;
+  private double oil;
   @SerializedName("uranium")
   @Expose
-  private int uranium;
+  private double uranium;
   @SerializedName("iron")
   @Expose
-  private int iron;
+  private double iron;
   @SerializedName("bauxite")
   @Expose
-  private int bauxite;
+  private double bauxite;
   @SerializedName("lead")
   @Expose
-  private int lead;
+  private double lead;
   @SerializedName("gasoline")
   @Expose
-  private int gasoline;
+  private double gasoline;
   @SerializedName("munitions")
   @Expose
-  private int munitions;
+  private double munitions;
   @SerializedName("steel")
   @Expose
-  private int steel;
+  private double steel;
   @SerializedName("aluminum")
   @Expose
-  private int aluminum;
+  private double aluminum;
 
   public int getAllianceId() {
     return allianceId;
@@ -69,51 +69,51 @@ public class AllianceBankContent {
     return resourceTaxrate;
   }
 
-  public int getMoney() {
+  public double getMoney() {
     return money;
   }
 
-  public int getFood() {
+  public double getFood() {
     return food;
   }
 
-  public int getCoal() {
+  public double getCoal() {
     return coal;
   }
 
-  public int getOil() {
+  public double getOil() {
     return oil;
   }
 
-  public int getUranium() {
+  public double getUranium() {
     return uranium;
   }
 
-  public int getIron() {
+  public double getIron() {
     return iron;
   }
 
-  public int getBauxite() {
+  public double getBauxite() {
     return bauxite;
   }
 
-  public int getLead() {
+  public double getLead() {
     return lead;
   }
 
-  public int getGasoline() {
+  public double getGasoline() {
     return gasoline;
   }
 
-  public int getMunitions() {
+  public double getMunitions() {
     return munitions;
   }
 
-  public int getSteel() {
+  public double getSteel() {
     return steel;
   }
 
-  public int getAluminum() {
+  public double getAluminum() {
     return aluminum;
   }
 }
