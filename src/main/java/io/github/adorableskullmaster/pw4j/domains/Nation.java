@@ -110,7 +110,7 @@ public class Nation extends Entity {
   private double totalinfrastructure;
   @SerializedName("landarea")
   @Expose
-  private int landarea;
+  private double landarea;
   @SerializedName("soldiers")
   @Expose
   private String soldiers;
@@ -377,7 +377,7 @@ public class Nation extends Entity {
     return totalinfrastructure;
   }
 
-  public int getLandarea() {
+  public double getLandarea() {
     return landarea;
   }
 
