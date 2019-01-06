@@ -14,7 +14,9 @@ public enum QueryURL {
   APPLICANTS_URL("applicants/"),
   CITY_URL("city/"),
   TRADEPRICE_URL("tradeprice/"),
-  TRADEHISTORY_URL("trade-history/");
+  TRADEHISTORY_URL("trade-history/"),
+  ALL_CITIES_URL("all-cities/"),
+  NATION_MILITARY_URL("nation-military/");
 
   private final String url;
 

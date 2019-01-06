@@ -2,7 +2,7 @@ package io.github.adorableskullmaster.pw4j.domains;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import io.github.adorableskullmaster.pw4j.domains.subdomains.SNation;
+import io.github.adorableskullmaster.pw4j.domains.subdomains.SNationContainer;
 
 import java.util.List;
 
@@ -12,13 +12,13 @@ public class Nations extends Entity {
   private boolean success;
   @SerializedName("nations")
   @Expose
-  private List<SNation> nations = null;
+  private List<SNationContainer> nations = null;
 
   public boolean isSuccess() {
     return success;
   }
 
-  public List<SNation> getNations() {
+  public List<SNationContainer> getNations() {
     return nations;
   }
 }

@@ -65,6 +65,16 @@ public class ExceptionTests {
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
+  public void allCitiesExceptionTest() {
+    politicsAndWar2.getAllCities();
+  }
+
+  @Test(expected = PoliticsAndWarAPIException.class)
+  public void allMilitariesTest() {
+    politicsAndWar2.getAllMilitaries();
+  }
+
+  @Test(expected = PoliticsAndWarAPIException.class)
   public void apiKeyExceptionTest() {
     politicsAndWar2.getMembers(913);
   }

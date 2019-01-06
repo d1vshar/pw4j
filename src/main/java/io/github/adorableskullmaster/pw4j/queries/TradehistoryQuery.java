@@ -1,6 +1,6 @@
 package io.github.adorableskullmaster.pw4j.queries;
 
-import io.github.adorableskullmaster.pw4j.domains.Tradehistory;
+import io.github.adorableskullmaster.pw4j.domains.TradeHistory;
 import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 import io.github.adorableskullmaster.pw4j.enums.ResourceType;
 
@@ -27,6 +27,6 @@ public class TradehistoryQuery extends AuthenticatedQuery implements IEntityQuer
     if (resources != null)
       url = url.concat("&resources=")
           .concat(Arrays.stream(resources).map(ResourceType::getName).collect(Collectors.joining(",")));
-    return new ApiQuery<>(url, new Tradehistory());
+    return new ApiQuery<>(url, new TradeHistory());
   }
 }

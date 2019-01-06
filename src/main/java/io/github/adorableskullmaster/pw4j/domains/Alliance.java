@@ -8,13 +8,13 @@ import java.util.List;
 public class Alliance extends Entity {
   @SerializedName("leaderids")
   @Expose
-  private List<Integer> leaderids = null;
+  private List<Integer> leaderIds = null;
   @SerializedName("success")
   @Expose
   private boolean success;
   @SerializedName("allianceid")
   @Expose
-  private String allianceid;
+  private String allianceId;
   @SerializedName("name")
   @Expose
   private String name;
@@ -35,7 +35,7 @@ public class Alliance extends Entity {
   private List<Integer> memberIdList = null;
   @SerializedName("vmodemembers")
   @Expose
-  private int vmodemembers;
+  private int vmModeMembers;
   @SerializedName("accepting members")
   @Expose
   private String acceptingMembers;
@@ -79,16 +79,16 @@ public class Alliance extends Entity {
   @Expose
   private int treasures;
 
-  public List<Integer> getLeaderids() {
-    return leaderids;
+  public List<Integer> getLeaderIds() {
+    return leaderIds;
   }
 
   public boolean isSuccess() {
     return success;
   }
 
-  public String getAllianceid() {
-    return allianceid;
+  public String getAllianceId() {
+    return allianceId;
   }
 
   public String getName() {
@@ -115,8 +115,8 @@ public class Alliance extends Entity {
     return memberIdList;
   }
 
-  public int getVmodemembers() {
-    return vmodemembers;
+  public int getVmModeMembers() {
+    return vmModeMembers;
   }
 
   public String getAcceptingMembers() {

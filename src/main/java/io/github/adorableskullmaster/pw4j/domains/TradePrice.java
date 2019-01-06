@@ -2,10 +2,10 @@ package io.github.adorableskullmaster.pw4j.domains;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import io.github.adorableskullmaster.pw4j.domains.subdomains.Highestbuy;
-import io.github.adorableskullmaster.pw4j.domains.subdomains.Lowestbuy;
+import io.github.adorableskullmaster.pw4j.domains.subdomains.HighestbuyContainer;
+import io.github.adorableskullmaster.pw4j.domains.subdomains.LowestbuyContainer;
 
-public class Tradeprice extends Entity {
+public class TradePrice extends Entity {
   @SerializedName("resource")
   @Expose
   private String resource;
@@ -17,10 +17,10 @@ public class Tradeprice extends Entity {
   private String marketindex;
   @SerializedName("highestbuy")
   @Expose
-  private Highestbuy highestbuy;
+  private HighestbuyContainer highestbuyContainer;
   @SerializedName("lowestbuy")
   @Expose
-  private Lowestbuy lowestbuy;
+  private LowestbuyContainer lowestbuyContainer;
 
   public String getResource() {
     return resource;
@@ -34,11 +34,11 @@ public class Tradeprice extends Entity {
     return marketindex;
   }
 
-  public Highestbuy getHighestbuy() {
-    return highestbuy;
+  public HighestbuyContainer getHighestbuy() {
+    return highestbuyContainer;
   }
 
-  public Lowestbuy getLowestbuy() {
-    return lowestbuy;
+  public LowestbuyContainer getLowestbuy() {
+    return lowestbuyContainer;
   }
 }

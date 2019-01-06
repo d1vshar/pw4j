@@ -12,7 +12,6 @@ import static org.junit.Assert.assertTrue;
 public class WrapperTests {
 
   private PoliticsAndWar politicsAndWar;
-  private PoliticsAndWar testPoliticsAndWar;
 
   public WrapperTests() {
     try {
@@ -20,10 +19,6 @@ public class WrapperTests {
       properties.load(getClass().getClassLoader().getResourceAsStream("testData.properties"));
       politicsAndWar = new PoliticsAndWarBuilder()
           .setApiKey(properties.getProperty("apiKey"))
-          .build();
-      testPoliticsAndWar = new PoliticsAndWarBuilder()
-          .setApiKey(properties.getProperty("apiKey"))
-          .setTestServerMode(true)
           .build();
     } catch (IOException e) {
       e.printStackTrace();
@@ -42,7 +37,7 @@ public class WrapperTests {
 
   @Test
   public void warQueryTest() {
-    assertTrue(politicsAndWar.getWar(357727).isSuccess());
+    assertTrue(politicsAndWar.getWar(385279).isSuccess());
   }
 
   @Test
@@ -97,7 +92,12 @@ public class WrapperTests {
   }
 
   @Test
-  public void testServerQueryTest() {
-    assertEquals("Creaotaria", testPoliticsAndWar.getNation(2703).getName());
+  public void allCitiesQueryTest() {
+    assertTrue(politicsAndWar.getAllCities().isSuccess());
+  }
+
+  @Test
+  public void allMilitariesQueryTest() {
+    assertTrue(politicsAndWar.getAllMilitaries().isSuccess());
   }
 }

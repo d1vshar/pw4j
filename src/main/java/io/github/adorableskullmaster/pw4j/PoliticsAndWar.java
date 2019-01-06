@@ -39,6 +39,16 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   }
 
   @Override
+  public NationMilitary getAllMilitaries() {
+    return (NationMilitary) execute(new NationMilitaryQuery(apiKey).build());
+  }
+
+  @Override
+  public AllCities getAllCities() {
+    return (AllCities) execute(new AllCitiesQuery(apiKey).build());
+  }
+
+  @Override
   public Applicants getApplicants(int allianceId) {
     return (Applicants) execute(new ApplicantsQuery(allianceId).build());
   }
@@ -84,28 +94,28 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   }
 
   @Override
-  public Tradeprice getTradeprice(ResourceType resource) {
-    return (Tradeprice) execute(new TradepriceQuery(resource).build());
+  public TradePrice getTradeprice(ResourceType resource) {
+    return (TradePrice) execute(new TradepriceQuery(resource).build());
   }
 
   @Override
-  public Tradehistory getAllTradehistory() {
-    return (Tradehistory) execute(new TradehistoryQuery(apiKey, null, null).build());
+  public TradeHistory getAllTradehistory() {
+    return (TradeHistory) execute(new TradehistoryQuery(apiKey, null, null).build());
   }
 
   @Override
-  public Tradehistory getTradehistoryByType(ResourceType... resources) {
-    return (Tradehistory) execute(new TradehistoryQuery(apiKey, null, resources).build());
+  public TradeHistory getTradehistoryByType(ResourceType... resources) {
+    return (TradeHistory) execute(new TradehistoryQuery(apiKey, null, resources).build());
   }
 
   @Override
-  public Tradehistory getTradehistoryByAmount(Integer amount) {
-    return (Tradehistory) execute(new TradehistoryQuery(apiKey, amount, null).build());
+  public TradeHistory getTradehistoryByAmount(Integer amount) {
+    return (TradeHistory) execute(new TradehistoryQuery(apiKey, amount, null).build());
   }
 
   @Override
-  public Tradehistory getTradehistory(Integer amount, ResourceType... resources) {
-    return (Tradehistory) execute(new TradehistoryQuery(apiKey, amount, resources).build());
+  public TradeHistory getTradehistory(Integer amount, ResourceType... resources) {
+    return (TradeHistory) execute(new TradehistoryQuery(apiKey, amount, resources).build());
   }
 
   private Entity execute(ApiQuery apiQuery) {

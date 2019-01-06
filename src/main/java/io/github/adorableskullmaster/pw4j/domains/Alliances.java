@@ -2,7 +2,7 @@ package io.github.adorableskullmaster.pw4j.domains;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import io.github.adorableskullmaster.pw4j.domains.subdomains.SAlliance;
+import io.github.adorableskullmaster.pw4j.domains.subdomains.SAllianceContainer;
 
 import java.util.List;
 
@@ -12,13 +12,13 @@ public class Alliances extends Entity {
   private boolean success;
   @SerializedName("alliances")
   @Expose
-  private List<SAlliance> alliances = null;
+  private List<SAllianceContainer> alliances = null;
 
   public boolean isSuccess() {
     return success;
   }
 
-  public List<SAlliance> getAlliances() {
+  public List<SAllianceContainer> getAlliances() {
     return alliances;
   }
 }

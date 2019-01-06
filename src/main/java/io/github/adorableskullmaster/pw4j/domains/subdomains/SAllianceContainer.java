@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class SAlliance {
+public class SAllianceContainer {
   @SerializedName("id")
   @Expose
   private String id;

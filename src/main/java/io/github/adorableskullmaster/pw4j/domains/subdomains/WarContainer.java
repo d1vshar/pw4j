@@ -3,7 +3,7 @@ package io.github.adorableskullmaster.pw4j.domains.subdomains;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MWar {
+public class WarContainer {
   @SerializedName("war_ended")
   @Expose
   private boolean warEnded;

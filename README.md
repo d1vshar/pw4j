@@ -10,6 +10,10 @@
 * **Authenticated APIs:** *(Require `apiKey`)*
     - Tradehistory API
     - Alliance Bank and Members API
+    - Nation-Military API
+    - All-Cities API
+    
+>**Note:** All unauthenticated APIs will be made authenticated by game devs in future releases. 
 
 ### Features
 - Simple design to handle API requests.

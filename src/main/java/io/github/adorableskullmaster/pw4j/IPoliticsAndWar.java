@@ -13,6 +13,10 @@ public interface IPoliticsAndWar {
 
   Alliances getAlliances();
 
+  NationMilitary getAllMilitaries();
+
+  AllCities getAllCities();
+
   Applicants getApplicants(int allianceId);
 
   Bank getBank(int allianceId);
@@ -31,14 +35,14 @@ public interface IPoliticsAndWar {
 
   Wars getWars(int amount, Integer[] alliance_ids);
 
-  Tradeprice getTradeprice(ResourceType resource);
+  TradePrice getTradeprice(ResourceType resource);
 
-  Tradehistory getAllTradehistory();
+  TradeHistory getAllTradehistory();
 
-  Tradehistory getTradehistoryByType(ResourceType[] resources);
+  TradeHistory getTradehistoryByType(ResourceType[] resources);
 
-  Tradehistory getTradehistoryByAmount(Integer amount);
+  TradeHistory getTradehistoryByAmount(Integer amount);
 
-  Tradehistory getTradehistory(Integer amount, ResourceType[] resources);
+  TradeHistory getTradehistory(Integer amount, ResourceType[] resources);
 
 }

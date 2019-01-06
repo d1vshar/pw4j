@@ -3,7 +3,7 @@ package io.github.adorableskullmaster.pw4j.domains.subdomains;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AllianceBankContent {
+public class AllianceBankContainer {
   @SerializedName("alliance_id")
   @Expose
   private int allianceId;

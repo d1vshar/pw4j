@@ -3,7 +3,7 @@ package io.github.adorableskullmaster.pw4j.domains.subdomains;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Lowestbuy {
+public class HighestbuyContainer {
   @SerializedName("date")
   @Expose
   private String date;

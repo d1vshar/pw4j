@@ -3,7 +3,7 @@ package io.github.adorableskullmaster.pw4j.domains.subdomains;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ApplicantNations {
+public class ApplicantNationsContainer {
   @SerializedName("nationid")
   @Expose
   private int nationid;
