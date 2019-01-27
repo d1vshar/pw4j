@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import io.github.adorableskullmaster.pw4j.domains.subdomains.SCityContainer;
 
 import java.util.List;
+import java.util.Objects;
 
 public class AllCities extends Entity {
   @SerializedName("success")
@@ -22,4 +23,25 @@ public class AllCities extends Entity {
     return allCities;
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    AllCities allCities1 = (AllCities) o;
+    return Objects.equals(success, allCities1.success) &&
+        Objects.equals(allCities, allCities1.allCities);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(success, allCities);
+  }
+
+  @Override
+  public String toString() {
+    return "AllCities{" +
+        "success=" + success +
+        ", allCities=" + allCities +
+        '}';
+  }
 }

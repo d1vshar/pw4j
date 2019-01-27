@@ -5,7 +5,7 @@ import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
 public class NationQuery implements IEntityQuery {
 
-  private int nid;
+  private final int nid;
 
   public NationQuery(int nid) {
     this.nid = nid;

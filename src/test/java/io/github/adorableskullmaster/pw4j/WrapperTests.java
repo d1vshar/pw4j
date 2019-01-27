@@ -1,9 +1,11 @@
 package io.github.adorableskullmaster.pw4j;
 
+import io.github.adorableskullmaster.pw4j.domains.subdomains.SNationContainer;
 import io.github.adorableskullmaster.pw4j.enums.ResourceType;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
@@ -68,6 +70,19 @@ public class WrapperTests {
   @Test
   public void nationsQueryTest() {
     assertTrue(politicsAndWar.getNations().isSuccess());
+
+    List<SNationContainer> nationsContainer = politicsAndWar.getNations(false, 913, 1000, 500).getNationsContainer();
+    boolean b = nationsContainer.stream()
+        .noneMatch(nationContainer -> Integer.parseInt(nationContainer.getVacmode()) > 0);
+    assertTrue(b);
+
+    boolean b1 = nationsContainer.stream()
+        .allMatch(nationContainer -> nationContainer.getAllianceid() == 913);
+    assertTrue(b1);
+
+    boolean b2 = nationsContainer.stream()
+        .allMatch(nationContainer -> nationContainer.getScore() <= 1000 && nationContainer.getScore() >= 500);
+    assertTrue(b2);
   }
 
   @Test

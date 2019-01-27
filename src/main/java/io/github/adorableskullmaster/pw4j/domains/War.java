@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import io.github.adorableskullmaster.pw4j.domains.subdomains.WarContainer;
 
 import java.util.List;
+import java.util.Objects;
 
 public class War extends Entity {
   @SerializedName("success")
@@ -20,5 +21,27 @@ public class War extends Entity {
 
   public List<WarContainer> getWar() {
     return war;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    War war1 = (War) o;
+    return success == war1.success &&
+        Objects.equals(war, war1.war);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(success, war);
+  }
+
+  @Override
+  public String toString() {
+    return "War{" +
+        "success=" + success +
+        ", war=" + war +
+        '}';
   }
 }

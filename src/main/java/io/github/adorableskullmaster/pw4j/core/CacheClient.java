@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-class CacheClient {
+public class CacheClient {
   private final int CACHE_MAX_SIZE;
   private final long CACHE_RETAIN_TIME;
   private Map<String, Entity> cacheMap;
@@ -39,6 +39,11 @@ class CacheClient {
     return cacheMap.get(url);
   }
 
+  void clear() {
+    cacheMap.clear();
+    timeMap.clear();
+  }
+
   private void removeOldest() {
     timeMap.entrySet()
         .stream()
@@ -60,15 +65,15 @@ class CacheClient {
     }
   }
 
-  private String cacheStats() {
-    return Integer.toString(getCacheSize()).concat("/").concat(Integer.toString(getCapacity()));
+  public void printCacheStats() {
+    System.out.println(Integer.toString(getCacheSize()).concat("/").concat(Integer.toString(getCapacity())));
   }
 
-  private int getCacheSize() {
+  public int getCacheSize() {
     return cacheMap.size();
   }
 
-  private int getCapacity() {
+  public int getCapacity() {
     return CACHE_MAX_SIZE;
   }
 }

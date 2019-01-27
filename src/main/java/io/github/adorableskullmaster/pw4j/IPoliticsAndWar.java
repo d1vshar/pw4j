@@ -9,6 +9,14 @@ public interface IPoliticsAndWar {
 
   Nations getNations();
 
+  Nations getNations(boolean vm);
+
+  Nations getNationsByAlliance(boolean vm, int allianceId);
+
+  Nations getNationsByScore(boolean vm, int maxScore, int minScore);
+
+  Nations getNations(boolean vm, int allianceId, int maxScore, int minScore);
+
   Alliance getAlliance(int allianceId);
 
   Alliances getAlliances();

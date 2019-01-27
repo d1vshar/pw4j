@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Alliance extends Entity {
   @SerializedName("leaderids")
@@ -173,5 +174,71 @@ public class Alliance extends Entity {
 
   public int getTreasures() {
     return treasures;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Alliance alliance = (Alliance) o;
+    return success == alliance.success &&
+        members == alliance.members &&
+        vmModeMembers == alliance.vmModeMembers &&
+        applicants == alliance.applicants &&
+        Double.compare(alliance.gdp, gdp) == 0 &&
+        cities == alliance.cities &&
+        soldiers == alliance.soldiers &&
+        tanks == alliance.tanks &&
+        aircraft == alliance.aircraft &&
+        ships == alliance.ships &&
+        missiles == alliance.missiles &&
+        nukes == alliance.nukes &&
+        treasures == alliance.treasures &&
+        Objects.equals(leaderIds, alliance.leaderIds) &&
+        Objects.equals(allianceId, alliance.allianceId) &&
+        Objects.equals(name, alliance.name) &&
+        Objects.equals(acronym, alliance.acronym) &&
+        Objects.equals(score, alliance.score) &&
+        Objects.equals(color, alliance.color) &&
+        Objects.equals(memberIdList, alliance.memberIdList) &&
+        Objects.equals(acceptingMembers, alliance.acceptingMembers) &&
+        Objects.equals(flagurl, alliance.flagurl) &&
+        Objects.equals(forumurl, alliance.forumurl) &&
+        Objects.equals(irc, alliance.irc);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(leaderIds, success, allianceId, name, acronym, score, color, members, memberIdList, vmModeMembers, acceptingMembers, applicants, flagurl, forumurl, irc, gdp, cities, soldiers, tanks, aircraft, ships, missiles, nukes, treasures);
+  }
+
+  @Override
+  public String toString() {
+    return "Alliance{" +
+        "leaderIds=" + leaderIds +
+        ", success=" + success +
+        ", allianceId='" + allianceId + '\'' +
+        ", name='" + name + '\'' +
+        ", acronym='" + acronym + '\'' +
+        ", score='" + score + '\'' +
+        ", color='" + color + '\'' +
+        ", members=" + members +
+        ", memberIdList=" + memberIdList +
+        ", vmModeMembers=" + vmModeMembers +
+        ", acceptingMembers='" + acceptingMembers + '\'' +
+        ", applicants=" + applicants +
+        ", flagurl='" + flagurl + '\'' +
+        ", forumurl='" + forumurl + '\'' +
+        ", irc='" + irc + '\'' +
+        ", gdp=" + gdp +
+        ", cities=" + cities +
+        ", soldiers=" + soldiers +
+        ", tanks=" + tanks +
+        ", aircraft=" + aircraft +
+        ", ships=" + ships +
+        ", missiles=" + missiles +
+        ", nukes=" + nukes +
+        ", treasures=" + treasures +
+        '}';
   }
 }

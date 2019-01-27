@@ -5,7 +5,7 @@ import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
 public class WarQuery implements IEntityQuery {
 
-  private int wid;
+  private final int wid;
 
   public WarQuery(int wid) {
     this.wid = wid;

@@ -5,7 +5,7 @@ import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
 public class ApplicantsQuery implements IEntityQuery {
 
-   private int aid;
+  private final int aid;
 
    public ApplicantsQuery(int aid) {
      this.aid=aid;

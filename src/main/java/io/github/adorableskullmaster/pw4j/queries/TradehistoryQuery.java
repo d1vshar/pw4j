@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class TradehistoryQuery extends AuthenticatedQuery implements IEntityQuery {
 
-  private Integer records;
-  private ResourceType[] resources;
+  private final Integer records;
+  private final ResourceType[] resources;
 
   public TradehistoryQuery(String apiKey, Integer records, ResourceType[] resources) {
     super.apiKey = apiKey;

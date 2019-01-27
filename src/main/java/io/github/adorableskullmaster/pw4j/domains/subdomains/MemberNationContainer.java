@@ -3,6 +3,8 @@ package io.github.adorableskullmaster.pw4j.domains.subdomains;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class MemberNationContainer {
   @SerializedName("nationid")
   @Expose
@@ -353,5 +355,123 @@ public class MemberNationContainer {
 
   public String getSpies() {
     return spies;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    MemberNationContainer that = (MemberNationContainer) o;
+    return nationid == that.nationid &&
+        allianceid == that.allianceid &&
+        allianceposition == that.allianceposition &&
+        cities == that.cities &&
+        offensivewars == that.offensivewars &&
+        defensivewars == that.defensivewars &&
+        minutessinceactive == that.minutessinceactive &&
+        cityprojecttimerturns == that.cityprojecttimerturns &&
+        Objects.equals(nation, that.nation) &&
+        Objects.equals(leader, that.leader) &&
+        Objects.equals(warPolicy, that.warPolicy) &&
+        Objects.equals(color, that.color) &&
+        Objects.equals(alliance, that.alliance) &&
+        Objects.equals(score, that.score) &&
+        Objects.equals(vacmode, that.vacmode) &&
+        Objects.equals(infrastructure, that.infrastructure) &&
+        Objects.equals(bauxiteworks, that.bauxiteworks) &&
+        Objects.equals(ironworks, that.ironworks) &&
+        Objects.equals(armsstockpile, that.armsstockpile) &&
+        Objects.equals(emgasreserve, that.emgasreserve) &&
+        Objects.equals(massirrigation, that.massirrigation) &&
+        Objects.equals(inttradecenter, that.inttradecenter) &&
+        Objects.equals(missilepad, that.missilepad) &&
+        Objects.equals(nuclearresfac, that.nuclearresfac) &&
+        Objects.equals(irondome, that.irondome) &&
+        Objects.equals(vitaldefsys, that.vitaldefsys) &&
+        Objects.equals(intagncy, that.intagncy) &&
+        Objects.equals(uraniumenrich, that.uraniumenrich) &&
+        Objects.equals(propbureau, that.propbureau) &&
+        Objects.equals(cenciveng, that.cenciveng) &&
+        Objects.equals(money, that.money) &&
+        Objects.equals(food, that.food) &&
+        Objects.equals(coal, that.coal) &&
+        Objects.equals(oil, that.oil) &&
+        Objects.equals(uranium, that.uranium) &&
+        Objects.equals(bauxite, that.bauxite) &&
+        Objects.equals(iron, that.iron) &&
+        Objects.equals(lead, that.lead) &&
+        Objects.equals(gasoline, that.gasoline) &&
+        Objects.equals(munitions, that.munitions) &&
+        Objects.equals(aluminum, that.aluminum) &&
+        Objects.equals(steel, that.steel) &&
+        Objects.equals(credits, that.credits) &&
+        Objects.equals(soldiers, that.soldiers) &&
+        Objects.equals(tanks, that.tanks) &&
+        Objects.equals(aircraft, that.aircraft) &&
+        Objects.equals(ships, that.ships) &&
+        Objects.equals(missiles, that.missiles) &&
+        Objects.equals(nukes, that.nukes) &&
+        Objects.equals(spies, that.spies);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(nationid, nation, leader, warPolicy, color, alliance, allianceid, allianceposition, cities, offensivewars, defensivewars, score, vacmode, minutessinceactive, infrastructure, cityprojecttimerturns, bauxiteworks, ironworks, armsstockpile, emgasreserve, massirrigation, inttradecenter, missilepad, nuclearresfac, irondome, vitaldefsys, intagncy, uraniumenrich, propbureau, cenciveng, money, food, coal, oil, uranium, bauxite, iron, lead, gasoline, munitions, aluminum, steel, credits, soldiers, tanks, aircraft, ships, missiles, nukes, spies);
+  }
+
+  @Override
+  public String toString() {
+    return "MemberNationContainer{" +
+        "nationid=" + nationid +
+        ", nation='" + nation + '\'' +
+        ", leader='" + leader + '\'' +
+        ", warPolicy='" + warPolicy + '\'' +
+        ", color='" + color + '\'' +
+        ", alliance='" + alliance + '\'' +
+        ", allianceid=" + allianceid +
+        ", allianceposition=" + allianceposition +
+        ", cities=" + cities +
+        ", offensivewars=" + offensivewars +
+        ", defensivewars=" + defensivewars +
+        ", score='" + score + '\'' +
+        ", vacmode='" + vacmode + '\'' +
+        ", minutessinceactive=" + minutessinceactive +
+        ", infrastructure='" + infrastructure + '\'' +
+        ", cityprojecttimerturns=" + cityprojecttimerturns +
+        ", bauxiteworks='" + bauxiteworks + '\'' +
+        ", ironworks='" + ironworks + '\'' +
+        ", armsstockpile='" + armsstockpile + '\'' +
+        ", emgasreserve='" + emgasreserve + '\'' +
+        ", massirrigation='" + massirrigation + '\'' +
+        ", inttradecenter='" + inttradecenter + '\'' +
+        ", missilepad='" + missilepad + '\'' +
+        ", nuclearresfac='" + nuclearresfac + '\'' +
+        ", irondome='" + irondome + '\'' +
+        ", vitaldefsys='" + vitaldefsys + '\'' +
+        ", intagncy='" + intagncy + '\'' +
+        ", uraniumenrich='" + uraniumenrich + '\'' +
+        ", propbureau='" + propbureau + '\'' +
+        ", cenciveng='" + cenciveng + '\'' +
+        ", money='" + money + '\'' +
+        ", food='" + food + '\'' +
+        ", coal='" + coal + '\'' +
+        ", oil='" + oil + '\'' +
+        ", uranium='" + uranium + '\'' +
+        ", bauxite='" + bauxite + '\'' +
+        ", iron='" + iron + '\'' +
+        ", lead='" + lead + '\'' +
+        ", gasoline='" + gasoline + '\'' +
+        ", munitions='" + munitions + '\'' +
+        ", aluminum='" + aluminum + '\'' +
+        ", steel='" + steel + '\'' +
+        ", credits='" + credits + '\'' +
+        ", soldiers='" + soldiers + '\'' +
+        ", tanks='" + tanks + '\'' +
+        ", aircraft='" + aircraft + '\'' +
+        ", ships='" + ships + '\'' +
+        ", missiles='" + missiles + '\'' +
+        ", nukes='" + nukes + '\'' +
+        ", spies='" + spies + '\'' +
+        '}';
   }
 }

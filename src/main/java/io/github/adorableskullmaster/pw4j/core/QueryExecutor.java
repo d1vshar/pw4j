@@ -35,4 +35,13 @@ public class QueryExecutor {
       cacheClient.add(apiQuery.getUrlStr(), entity);
     return entity;
   }
+
+  public CacheClient getCacheClient() {
+    return cacheClient;
+  }
+
+  public void clearCacheClient() {
+    if (cacheClient != null)
+      cacheClient.clear();
+  }
 }

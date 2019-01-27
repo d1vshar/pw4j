@@ -3,68 +3,133 @@ package io.github.adorableskullmaster.pw4j.domains.subdomains;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class NationMilitaryContainer {
   @SerializedName("nation_id")
   @Expose
-  private String nationId;
+  private Integer nationId;
   @SerializedName("vm_indicator")
   @Expose
-  private String vmIndicator;
+  private Integer vmIndicator;
   @SerializedName("score")
   @Expose
-  private String score;
+  private Integer score;
   @SerializedName("soldiers")
   @Expose
-  private String soldiers;
+  private Integer soldiers;
   @SerializedName("tanks")
   @Expose
-  private String tanks;
+  private Integer tanks;
   @SerializedName("aircraft")
   @Expose
-  private String aircraft;
+  private Integer aircraft;
   @SerializedName("ships")
   @Expose
-  private String ships;
+  private Integer ships;
   @SerializedName("missiles")
   @Expose
-  private String missiles;
+  private Integer missiles;
   @SerializedName("nukes")
   @Expose
-  private String nukes;
+  private Integer nukes;
+  @SerializedName("alliance")
+  @Expose
+  private String alliance;
+  @SerializedName("alliance_id")
+  @Expose
+  private Integer allianceId;
+  @SerializedName("alliance_position")
+  @Expose
+  private Integer alliancePosition;
 
-  public String getNationId() {
+  public Integer getNationId() {
     return nationId;
   }
 
-  public String getVmIndicator() {
+  public Integer getVmIndicator() {
     return vmIndicator;
   }
 
-  public String getScore() {
+  public Integer getScore() {
     return score;
   }
 
-  public String getSoldiers() {
+  public Integer getSoldiers() {
     return soldiers;
   }
 
-  public String getTanks() {
+  public Integer getTanks() {
     return tanks;
   }
 
-  public String getAircraft() {
+  public Integer getAircraft() {
     return aircraft;
   }
 
-  public String getShips() {
+  public Integer getShips() {
     return ships;
   }
 
-  public String getMissiles() {
+  public Integer getMissiles() {
     return missiles;
   }
 
-  public String getNukes() {
+  public Integer getNukes() {
     return nukes;
+  }
+
+  public String getAlliance() {
+    return alliance;
+  }
+
+  public Integer getAllianceId() {
+    return allianceId;
+  }
+
+  public Integer getAlliancePosition() {
+    return alliancePosition;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    NationMilitaryContainer that = (NationMilitaryContainer) o;
+    return Objects.equals(nationId, that.nationId) &&
+        Objects.equals(vmIndicator, that.vmIndicator) &&
+        Objects.equals(score, that.score) &&
+        Objects.equals(soldiers, that.soldiers) &&
+        Objects.equals(tanks, that.tanks) &&
+        Objects.equals(aircraft, that.aircraft) &&
+        Objects.equals(ships, that.ships) &&
+        Objects.equals(missiles, that.missiles) &&
+        Objects.equals(nukes, that.nukes) &&
+        Objects.equals(alliance, that.alliance) &&
+        Objects.equals(allianceId, that.allianceId) &&
+        Objects.equals(alliancePosition, that.alliancePosition);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(nationId, vmIndicator, score, soldiers, tanks, aircraft, ships, missiles, nukes, alliance, allianceId, alliancePosition);
+  }
+
+  @Override
+  public String toString() {
+    return "NationMilitaryContainer{" +
+        "nationId=" + nationId +
+        ", vmIndicator=" + vmIndicator +
+        ", score=" + score +
+        ", soldiers=" + soldiers +
+        ", tanks=" + tanks +
+        ", aircraft=" + aircraft +
+        ", ships=" + ships +
+        ", missiles=" + missiles +
+        ", nukes=" + nukes +
+        ", alliance='" + alliance + '\'' +
+        ", allianceId=" + allianceId +
+        ", alliancePosition=" + alliancePosition +
+        '}';
   }
 }

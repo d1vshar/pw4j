@@ -4,7 +4,8 @@ import io.github.adorableskullmaster.pw4j.domains.City;
 import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
 public class CityQuery implements IEntityQuery {
-  private int cid;
+
+  private final int cid;
 
   public CityQuery(int cid) {
     this.cid = cid;

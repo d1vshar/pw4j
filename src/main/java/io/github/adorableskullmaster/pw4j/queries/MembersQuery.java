@@ -5,7 +5,8 @@ import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
 public class MembersQuery extends AuthenticatedQuery implements IEntityQuery {
 
-  private int aid;
+  private final int aid;
+
   public MembersQuery(String apiKey, int aid) {
     super.apiKey = apiKey;
     this.aid = aid;

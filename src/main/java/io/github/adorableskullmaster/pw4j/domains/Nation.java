@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Nation extends Entity {
   @SerializedName("cityids")
@@ -551,5 +552,179 @@ public class Nation extends Entity {
 
   public String getSeason() {
     return season;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Nation nation = (Nation) o;
+    return cityprojecttimerturns == nation.cityprojecttimerturns &&
+        success == nation.success &&
+        minutessinceactive == nation.minutessinceactive &&
+        daysold == nation.daysold &&
+        nrtotal == nation.nrtotal &&
+        cities == nation.cities &&
+        Double.compare(nation.totalinfrastructure, totalinfrastructure) == 0 &&
+        Double.compare(nation.landarea, landarea) == 0 &&
+        offensivewars == nation.offensivewars &&
+        defensivewars == nation.defensivewars &&
+        beigeTurnsLeft == nation.beigeTurnsLeft &&
+        Double.compare(nation.radiationIndex, radiationIndex) == 0 &&
+        Objects.equals(cityids, nation.cityids) &&
+        Objects.equals(nationid, nation.nationid) &&
+        Objects.equals(name, nation.name) &&
+        Objects.equals(prename, nation.prename) &&
+        Objects.equals(continent, nation.continent) &&
+        Objects.equals(socialpolicy, nation.socialpolicy) &&
+        Objects.equals(color, nation.color) &&
+        Objects.equals(uniqueid, nation.uniqueid) &&
+        Objects.equals(government, nation.government) &&
+        Objects.equals(domesticPolicy, nation.domesticPolicy) &&
+        Objects.equals(warPolicy, nation.warPolicy) &&
+        Objects.equals(founded, nation.founded) &&
+        Objects.equals(alliance, nation.alliance) &&
+        Objects.equals(allianceposition, nation.allianceposition) &&
+        Objects.equals(allianceid, nation.allianceid) &&
+        Objects.equals(flagurl, nation.flagurl) &&
+        Objects.equals(leadername, nation.leadername) &&
+        Objects.equals(title, nation.title) &&
+        Objects.equals(ecopolicy, nation.ecopolicy) &&
+        Objects.equals(approvalrating, nation.approvalrating) &&
+        Objects.equals(nationrank, nation.nationrank) &&
+        Objects.equals(nationrankstrings, nation.nationrankstrings) &&
+        Objects.equals(latitude, nation.latitude) &&
+        Objects.equals(longitude, nation.longitude) &&
+        Objects.equals(score, nation.score) &&
+        Objects.equals(population, nation.population) &&
+        Objects.equals(gdp, nation.gdp) &&
+        Objects.equals(soldiers, nation.soldiers) &&
+        Objects.equals(soldiercasualties, nation.soldiercasualties) &&
+        Objects.equals(soldierskilled, nation.soldierskilled) &&
+        Objects.equals(tanks, nation.tanks) &&
+        Objects.equals(tankcasualties, nation.tankcasualties) &&
+        Objects.equals(tankskilled, nation.tankskilled) &&
+        Objects.equals(aircraft, nation.aircraft) &&
+        Objects.equals(aircraftcasualties, nation.aircraftcasualties) &&
+        Objects.equals(aircraftkilled, nation.aircraftkilled) &&
+        Objects.equals(ships, nation.ships) &&
+        Objects.equals(shipcasualties, nation.shipcasualties) &&
+        Objects.equals(shipskilled, nation.shipskilled) &&
+        Objects.equals(missiles, nation.missiles) &&
+        Objects.equals(missilelaunched, nation.missilelaunched) &&
+        Objects.equals(missileseaten, nation.missileseaten) &&
+        Objects.equals(nukes, nation.nukes) &&
+        Objects.equals(nukeslaunched, nation.nukeslaunched) &&
+        Objects.equals(nukeseaten, nation.nukeseaten) &&
+        Objects.equals(infdesttot, nation.infdesttot) &&
+        Objects.equals(infraLost, nation.infraLost) &&
+        Objects.equals(moneyLooted, nation.moneyLooted) &&
+        Objects.equals(ironworks, nation.ironworks) &&
+        Objects.equals(bauxiteworks, nation.bauxiteworks) &&
+        Objects.equals(armsstockpile, nation.armsstockpile) &&
+        Objects.equals(emgasreserve, nation.emgasreserve) &&
+        Objects.equals(massirrigation, nation.massirrigation) &&
+        Objects.equals(inttradecenter, nation.inttradecenter) &&
+        Objects.equals(missilelpad, nation.missilelpad) &&
+        Objects.equals(nuclearresfac, nation.nuclearresfac) &&
+        Objects.equals(irondome, nation.irondome) &&
+        Objects.equals(vitaldefsys, nation.vitaldefsys) &&
+        Objects.equals(intagncy, nation.intagncy) &&
+        Objects.equals(uraniumenrich, nation.uraniumenrich) &&
+        Objects.equals(propbureau, nation.propbureau) &&
+        Objects.equals(cenciveng, nation.cenciveng) &&
+        Objects.equals(vmode, nation.vmode) &&
+        Objects.equals(offensivewarIds, nation.offensivewarIds) &&
+        Objects.equals(defensivewarIds, nation.defensivewarIds) &&
+        Objects.equals(season, nation.season);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(cityids, cityprojecttimerturns, success, nationid, name, prename, continent, socialpolicy, color, minutessinceactive, uniqueid, government, domesticPolicy, warPolicy, founded, daysold, alliance, allianceposition, allianceid, flagurl, leadername, title, ecopolicy, approvalrating, nationrank, nationrankstrings, nrtotal, cities, latitude, longitude, score, population, gdp, totalinfrastructure, landarea, soldiers, soldiercasualties, soldierskilled, tanks, tankcasualties, tankskilled, aircraft, aircraftcasualties, aircraftkilled, ships, shipcasualties, shipskilled, missiles, missilelaunched, missileseaten, nukes, nukeslaunched, nukeseaten, infdesttot, infraLost, moneyLooted, ironworks, bauxiteworks, armsstockpile, emgasreserve, massirrigation, inttradecenter, missilelpad, nuclearresfac, irondome, vitaldefsys, intagncy, uraniumenrich, propbureau, cenciveng, vmode, offensivewars, defensivewars, offensivewarIds, defensivewarIds, beigeTurnsLeft, radiationIndex, season);
+  }
+
+  @Override
+  public String toString() {
+    return "Nation{" +
+        "cityids=" + cityids +
+        ", cityprojecttimerturns=" + cityprojecttimerturns +
+        ", success=" + success +
+        ", nationid='" + nationid + '\'' +
+        ", name='" + name + '\'' +
+        ", prename='" + prename + '\'' +
+        ", continent='" + continent + '\'' +
+        ", socialpolicy='" + socialpolicy + '\'' +
+        ", color='" + color + '\'' +
+        ", minutessinceactive=" + minutessinceactive +
+        ", uniqueid='" + uniqueid + '\'' +
+        ", government='" + government + '\'' +
+        ", domesticPolicy='" + domesticPolicy + '\'' +
+        ", warPolicy='" + warPolicy + '\'' +
+        ", founded='" + founded + '\'' +
+        ", daysold=" + daysold +
+        ", alliance='" + alliance + '\'' +
+        ", allianceposition='" + allianceposition + '\'' +
+        ", allianceid='" + allianceid + '\'' +
+        ", flagurl='" + flagurl + '\'' +
+        ", leadername='" + leadername + '\'' +
+        ", title='" + title + '\'' +
+        ", ecopolicy='" + ecopolicy + '\'' +
+        ", approvalrating='" + approvalrating + '\'' +
+        ", nationrank='" + nationrank + '\'' +
+        ", nationrankstrings='" + nationrankstrings + '\'' +
+        ", nrtotal=" + nrtotal +
+        ", cities=" + cities +
+        ", latitude='" + latitude + '\'' +
+        ", longitude='" + longitude + '\'' +
+        ", score='" + score + '\'' +
+        ", population='" + population + '\'' +
+        ", gdp='" + gdp + '\'' +
+        ", totalinfrastructure=" + totalinfrastructure +
+        ", landarea=" + landarea +
+        ", soldiers='" + soldiers + '\'' +
+        ", soldiercasualties='" + soldiercasualties + '\'' +
+        ", soldierskilled='" + soldierskilled + '\'' +
+        ", tanks='" + tanks + '\'' +
+        ", tankcasualties='" + tankcasualties + '\'' +
+        ", tankskilled='" + tankskilled + '\'' +
+        ", aircraft='" + aircraft + '\'' +
+        ", aircraftcasualties='" + aircraftcasualties + '\'' +
+        ", aircraftkilled='" + aircraftkilled + '\'' +
+        ", ships='" + ships + '\'' +
+        ", shipcasualties='" + shipcasualties + '\'' +
+        ", shipskilled='" + shipskilled + '\'' +
+        ", missiles='" + missiles + '\'' +
+        ", missilelaunched='" + missilelaunched + '\'' +
+        ", missileseaten='" + missileseaten + '\'' +
+        ", nukes='" + nukes + '\'' +
+        ", nukeslaunched='" + nukeslaunched + '\'' +
+        ", nukeseaten='" + nukeseaten + '\'' +
+        ", infdesttot='" + infdesttot + '\'' +
+        ", infraLost='" + infraLost + '\'' +
+        ", moneyLooted='" + moneyLooted + '\'' +
+        ", ironworks='" + ironworks + '\'' +
+        ", bauxiteworks='" + bauxiteworks + '\'' +
+        ", armsstockpile='" + armsstockpile + '\'' +
+        ", emgasreserve='" + emgasreserve + '\'' +
+        ", massirrigation='" + massirrigation + '\'' +
+        ", inttradecenter='" + inttradecenter + '\'' +
+        ", missilelpad='" + missilelpad + '\'' +
+        ", nuclearresfac='" + nuclearresfac + '\'' +
+        ", irondome='" + irondome + '\'' +
+        ", vitaldefsys='" + vitaldefsys + '\'' +
+        ", intagncy='" + intagncy + '\'' +
+        ", uraniumenrich='" + uraniumenrich + '\'' +
+        ", propbureau='" + propbureau + '\'' +
+        ", cenciveng='" + cenciveng + '\'' +
+        ", vmode='" + vmode + '\'' +
+        ", offensivewars=" + offensivewars +
+        ", defensivewars=" + defensivewars +
+        ", offensivewarIds=" + offensivewarIds +
+        ", defensivewarIds=" + defensivewarIds +
+        ", beigeTurnsLeft=" + beigeTurnsLeft +
+        ", radiationIndex=" + radiationIndex +
+        ", season='" + season + '\'' +
+        '}';
   }
 }

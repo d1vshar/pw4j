@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import io.github.adorableskullmaster.pw4j.domains.subdomains.SNationContainer;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Nations extends Entity {
   @SerializedName("success")
@@ -18,7 +19,29 @@ public class Nations extends Entity {
     return success;
   }
 
-  public List<SNationContainer> getNations() {
+  public List<SNationContainer> getNationsContainer() {
     return nations;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Nations nations1 = (Nations) o;
+    return success == nations1.success &&
+        Objects.equals(nations, nations1.nations);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(success, nations);
+  }
+
+  @Override
+  public String toString() {
+    return "Nations{" +
+        "success=" + success +
+        ", nations=" + nations +
+        '}';
   }
 }

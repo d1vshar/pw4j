@@ -12,9 +12,9 @@ import java.net.URL;
 
 public class ApiQuery<T extends Entity> {
 
-  private String urlPart;
+  private final String urlPart;
   private String urlStr = "";
-  private T t;
+  private final T t;
 
   ApiQuery(String urlPart, T t) {
     this.urlPart = urlPart;
@@ -34,6 +34,7 @@ public class ApiQuery<T extends Entity> {
   public Response fetchAPI() {
     HttpURLConnection conn = null;
     try {
+      System.out.println(urlStr);
       URL url = new URL(urlStr);
       conn = (HttpURLConnection) url.openConnection();
       conn.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");

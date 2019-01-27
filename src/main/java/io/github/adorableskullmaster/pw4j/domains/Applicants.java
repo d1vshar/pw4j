@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import io.github.adorableskullmaster.pw4j.domains.subdomains.ApplicantNationsContainer;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Applicants extends Entity {
   @SerializedName("success")
@@ -20,5 +21,27 @@ public class Applicants extends Entity {
 
   public List<ApplicantNationsContainer> getApplicants() {
     return applicants;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Applicants that = (Applicants) o;
+    return success == that.success &&
+        Objects.equals(applicants, that.applicants);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(success, applicants);
+  }
+
+  @Override
+  public String toString() {
+    return "Applicants{" +
+        "success=" + success +
+        ", applicants=" + applicants +
+        '}';
   }
 }

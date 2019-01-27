@@ -3,6 +3,8 @@ package io.github.adorableskullmaster.pw4j.domains.subdomains;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class TradeContainer {
   @SerializedName("trade_id")
   @Expose
@@ -59,5 +61,39 @@ public class TradeContainer {
 
   public String getPrice() {
     return price;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    TradeContainer that = (TradeContainer) o;
+    return Objects.equals(tradeId, that.tradeId) &&
+        Objects.equals(date, that.date) &&
+        Objects.equals(offererNationId, that.offererNationId) &&
+        Objects.equals(accepterNationId, that.accepterNationId) &&
+        Objects.equals(resource, that.resource) &&
+        Objects.equals(offerType, that.offerType) &&
+        Objects.equals(quantity, that.quantity) &&
+        Objects.equals(price, that.price);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(tradeId, date, offererNationId, accepterNationId, resource, offerType, quantity, price);
+  }
+
+  @Override
+  public String toString() {
+    return "TradeContainer{" +
+        "tradeId='" + tradeId + '\'' +
+        ", date='" + date + '\'' +
+        ", offererNationId='" + offererNationId + '\'' +
+        ", accepterNationId='" + accepterNationId + '\'' +
+        ", resource='" + resource + '\'' +
+        ", offerType='" + offerType + '\'' +
+        ", quantity='" + quantity + '\'' +
+        ", price='" + price + '\'' +
+        '}';
   }
 }

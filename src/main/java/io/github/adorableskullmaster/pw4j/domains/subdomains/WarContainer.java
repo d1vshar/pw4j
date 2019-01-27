@@ -3,6 +3,8 @@ package io.github.adorableskullmaster.pw4j.domains.subdomains;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class WarContainer {
   @SerializedName("war_ended")
   @Expose
@@ -234,5 +236,89 @@ public class WarContainer {
 
   public int getDefenderShipsLost() {
     return defenderShipsLost;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    WarContainer that = (WarContainer) o;
+    return warEnded == that.warEnded &&
+        aggressorIsApplicant == that.aggressorIsApplicant &&
+        defenderIsApplicant == that.defenderIsApplicant &&
+        aggressorOfferingPeace == that.aggressorOfferingPeace &&
+        aggressorIsFortified == that.aggressorIsFortified &&
+        defenderIsFortified == that.defenderIsFortified &&
+        turnsLeft == that.turnsLeft &&
+        aggressorInfraLost == that.aggressorInfraLost &&
+        defenderInfraLost == that.defenderInfraLost &&
+        aggressorMoneyLost == that.aggressorMoneyLost &&
+        defenderMoneyLost == that.defenderMoneyLost &&
+        aggressorSoldiersLost == that.aggressorSoldiersLost &&
+        defenderSoldiersLost == that.defenderSoldiersLost &&
+        aggressorTanksLost == that.aggressorTanksLost &&
+        defenderTanksLost == that.defenderTanksLost &&
+        aggressorAircraftLost == that.aggressorAircraftLost &&
+        defenderAircraftLost == that.defenderAircraftLost &&
+        aggressorShipsLost == that.aggressorShipsLost &&
+        defenderShipsLost == that.defenderShipsLost &&
+        Objects.equals(date, that.date) &&
+        Objects.equals(aggressorId, that.aggressorId) &&
+        Objects.equals(defenderId, that.defenderId) &&
+        Objects.equals(aggressorAllianceName, that.aggressorAllianceName) &&
+        Objects.equals(defenderAllianceName, that.defenderAllianceName) &&
+        Objects.equals(warReason, that.warReason) &&
+        Objects.equals(groundControl, that.groundControl) &&
+        Objects.equals(airSuperiority, that.airSuperiority) &&
+        Objects.equals(blockade, that.blockade) &&
+        Objects.equals(aggressorMilitaryActionPoints, that.aggressorMilitaryActionPoints) &&
+        Objects.equals(defenderMilitaryActionPoints, that.defenderMilitaryActionPoints) &&
+        Objects.equals(aggressorResistance, that.aggressorResistance) &&
+        Objects.equals(defenderResistance, that.defenderResistance) &&
+        Objects.equals(warType, that.warType);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(warEnded, date, aggressorId, defenderId, aggressorAllianceName, aggressorIsApplicant, defenderAllianceName, defenderIsApplicant, aggressorOfferingPeace, warReason, groundControl, airSuperiority, blockade, aggressorMilitaryActionPoints, defenderMilitaryActionPoints, aggressorResistance, defenderResistance, aggressorIsFortified, defenderIsFortified, turnsLeft, warType, aggressorInfraLost, defenderInfraLost, aggressorMoneyLost, defenderMoneyLost, aggressorSoldiersLost, defenderSoldiersLost, aggressorTanksLost, defenderTanksLost, aggressorAircraftLost, defenderAircraftLost, aggressorShipsLost, defenderShipsLost);
+  }
+
+  @Override
+  public String toString() {
+    return "WarContainer{" +
+        "warEnded=" + warEnded +
+        ", date='" + date + '\'' +
+        ", aggressorId='" + aggressorId + '\'' +
+        ", defenderId='" + defenderId + '\'' +
+        ", aggressorAllianceName='" + aggressorAllianceName + '\'' +
+        ", aggressorIsApplicant=" + aggressorIsApplicant +
+        ", defenderAllianceName='" + defenderAllianceName + '\'' +
+        ", defenderIsApplicant=" + defenderIsApplicant +
+        ", aggressorOfferingPeace=" + aggressorOfferingPeace +
+        ", warReason='" + warReason + '\'' +
+        ", groundControl='" + groundControl + '\'' +
+        ", airSuperiority='" + airSuperiority + '\'' +
+        ", blockade='" + blockade + '\'' +
+        ", aggressorMilitaryActionPoints='" + aggressorMilitaryActionPoints + '\'' +
+        ", defenderMilitaryActionPoints='" + defenderMilitaryActionPoints + '\'' +
+        ", aggressorResistance='" + aggressorResistance + '\'' +
+        ", defenderResistance='" + defenderResistance + '\'' +
+        ", aggressorIsFortified=" + aggressorIsFortified +
+        ", defenderIsFortified=" + defenderIsFortified +
+        ", turnsLeft=" + turnsLeft +
+        ", warType='" + warType + '\'' +
+        ", aggressorInfraLost=" + aggressorInfraLost +
+        ", defenderInfraLost=" + defenderInfraLost +
+        ", aggressorMoneyLost=" + aggressorMoneyLost +
+        ", defenderMoneyLost=" + defenderMoneyLost +
+        ", aggressorSoldiersLost=" + aggressorSoldiersLost +
+        ", defenderSoldiersLost=" + defenderSoldiersLost +
+        ", aggressorTanksLost=" + aggressorTanksLost +
+        ", defenderTanksLost=" + defenderTanksLost +
+        ", aggressorAircraftLost=" + aggressorAircraftLost +
+        ", defenderAircraftLost=" + defenderAircraftLost +
+        ", aggressorShipsLost=" + aggressorShipsLost +
+        ", defenderShipsLost=" + defenderShipsLost +
+        '}';
   }
 }

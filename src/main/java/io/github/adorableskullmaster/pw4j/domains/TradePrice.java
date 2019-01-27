@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 import io.github.adorableskullmaster.pw4j.domains.subdomains.HighestbuyContainer;
 import io.github.adorableskullmaster.pw4j.domains.subdomains.LowestbuyContainer;
 
+import java.util.Objects;
+
 public class TradePrice extends Entity {
   @SerializedName("resource")
   @Expose
@@ -40,5 +42,33 @@ public class TradePrice extends Entity {
 
   public LowestbuyContainer getLowestbuy() {
     return lowestbuyContainer;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    TradePrice that = (TradePrice) o;
+    return Objects.equals(resource, that.resource) &&
+        Objects.equals(avgprice, that.avgprice) &&
+        Objects.equals(marketindex, that.marketindex) &&
+        Objects.equals(highestbuyContainer, that.highestbuyContainer) &&
+        Objects.equals(lowestbuyContainer, that.lowestbuyContainer);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(resource, avgprice, marketindex, highestbuyContainer, lowestbuyContainer);
+  }
+
+  @Override
+  public String toString() {
+    return "TradePrice{" +
+        "resource='" + resource + '\'' +
+        ", avgprice='" + avgprice + '\'' +
+        ", marketindex='" + marketindex + '\'' +
+        ", highestbuyContainer=" + highestbuyContainer +
+        ", lowestbuyContainer=" + lowestbuyContainer +
+        '}';
   }
 }

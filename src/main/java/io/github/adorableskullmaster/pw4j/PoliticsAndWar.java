@@ -1,5 +1,6 @@
 package io.github.adorableskullmaster.pw4j;
 
+import io.github.adorableskullmaster.pw4j.core.CacheClient;
 import io.github.adorableskullmaster.pw4j.core.QueryExecutor;
 import io.github.adorableskullmaster.pw4j.domains.*;
 import io.github.adorableskullmaster.pw4j.enums.ResourceType;
@@ -25,7 +26,27 @@ public class PoliticsAndWar implements IPoliticsAndWar {
 
   @Override
   public Nations getNations() {
-    return (Nations) execute(new NationsQuery().build());
+    return (Nations) execute(new NationsQuery(null, null, null, null).build());
+  }
+
+  @Override
+  public Nations getNations(boolean vm) {
+    return (Nations) execute(new NationsQuery(vm, null, null, null).build());
+  }
+
+  @Override
+  public Nations getNationsByAlliance(boolean vm, int allianceId) {
+    return (Nations) execute(new NationsQuery(vm, null, null, allianceId).build());
+  }
+
+  @Override
+  public Nations getNationsByScore(boolean vm, int maxScore, int minScore) {
+    return (Nations) execute(new NationsQuery(vm, maxScore, minScore, null).build());
+  }
+
+  @Override
+  public Nations getNations(boolean vm, int allianceId, int maxScore, int minScore) {
+    return (Nations) execute(new NationsQuery(vm, maxScore, minScore, allianceId).build());
   }
 
   @Override
@@ -116,6 +137,14 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   @Override
   public TradeHistory getTradehistory(Integer amount, ResourceType... resources) {
     return (TradeHistory) execute(new TradehistoryQuery(apiKey, amount, resources).build());
+  }
+
+  public CacheClient getCacheClient() {
+    return executor.getCacheClient();
+  }
+
+  public void clearCache() {
+    executor.clearCacheClient();
   }
 
   private Entity execute(ApiQuery apiQuery) {

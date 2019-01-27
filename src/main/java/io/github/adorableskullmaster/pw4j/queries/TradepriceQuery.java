@@ -6,7 +6,7 @@ import io.github.adorableskullmaster.pw4j.enums.ResourceType;
 
 public class TradepriceQuery implements IEntityQuery {
 
-  private String resource;
+  private final String resource;
 
   public TradepriceQuery(ResourceType resource) {
     this.resource = resource.getName();

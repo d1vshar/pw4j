@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public class WarsQuery implements IEntityQuery {
 
-  private int wid;
-  private Integer[] aids;
+  private final int wid;
+  private final Integer[] aids;
 
   public WarsQuery(int wid, Integer[] aids) {
     this.wid = wid;
@@ -24,7 +24,7 @@ public class WarsQuery implements IEntityQuery {
     } else if (wid < 0 && aids != null) {
       url = url.concat("?alliance_ids=")
           .concat(Arrays.stream(aids).map(integer -> Integer.toString(integer)).collect(Collectors.joining(",")));
-    } else if (wid > 0 && aids != null) {
+    } else if (wid > 0) {
       url = url.concat(Integer.toString(wid))
           .concat("&alliance_id=")
           .concat(Arrays.stream(aids).map(integer -> Integer.toString(integer)).collect(Collectors.joining(",")));

@@ -3,6 +3,8 @@ package io.github.adorableskullmaster.pw4j.domains.subdomains;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class SWarContainer {
   @SerializedName("warID")
   @Expose
@@ -59,5 +61,39 @@ public class SWarContainer {
 
   public String getDate() {
     return date;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    SWarContainer that = (SWarContainer) o;
+    return warID == that.warID &&
+        attackerID == that.attackerID &&
+        defenderID == that.defenderID &&
+        Objects.equals(attackerAA, that.attackerAA) &&
+        Objects.equals(defenderAA, that.defenderAA) &&
+        Objects.equals(warType, that.warType) &&
+        Objects.equals(status, that.status) &&
+        Objects.equals(date, that.date);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(warID, attackerID, defenderID, attackerAA, defenderAA, warType, status, date);
+  }
+
+  @Override
+  public String toString() {
+    return "SWarContainer{" +
+        "warID=" + warID +
+        ", attackerID=" + attackerID +
+        ", defenderID=" + defenderID +
+        ", attackerAA='" + attackerAA + '\'' +
+        ", defenderAA='" + defenderAA + '\'' +
+        ", warType='" + warType + '\'' +
+        ", status='" + status + '\'' +
+        ", date='" + date + '\'' +
+        '}';
   }
 }
