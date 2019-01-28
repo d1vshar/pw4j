@@ -22,7 +22,7 @@ public class ApiQuery<T extends Entity> {
   }
 
   private static String convertStreamToString(java.io.InputStream is) {
-    java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+    java.util.Scanner s = new java.util.Scanner(is, "UTF-8").useDelimiter("\\A");
     return s.hasNext() ? s.next() : "";
   }
 
@@ -34,7 +34,6 @@ public class ApiQuery<T extends Entity> {
   public Response fetchAPI() {
     HttpURLConnection conn = null;
     try {
-      System.out.println(urlStr);
       URL url = new URL(urlStr);
       conn = (HttpURLConnection) url.openConnection();
       conn.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");

@@ -15,7 +15,7 @@ public class TradehistoryQuery extends AuthenticatedQuery implements IEntityQuer
   public TradehistoryQuery(String apiKey, Integer records, ResourceType[] resources) {
     super.apiKey = apiKey;
     this.records = records;
-    this.resources = resources;
+    this.resources = Arrays.copyOf(resources,resources.length);
   }
 
   @Override

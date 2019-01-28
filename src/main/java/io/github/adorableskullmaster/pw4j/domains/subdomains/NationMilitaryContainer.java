@@ -14,7 +14,7 @@ public class NationMilitaryContainer {
   private Integer vmIndicator;
   @SerializedName("score")
   @Expose
-  private Integer score;
+  private Double score;
   @SerializedName("soldiers")
   @Expose
   private Integer soldiers;
@@ -51,7 +51,7 @@ public class NationMilitaryContainer {
     return vmIndicator;
   }
 
-  public Integer getScore() {
+  public Double getScore() {
     return score;
   }
 
