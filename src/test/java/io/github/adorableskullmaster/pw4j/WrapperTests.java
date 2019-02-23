@@ -1,11 +1,11 @@
 package io.github.adorableskullmaster.pw4j;
 
-import io.github.adorableskullmaster.pw4j.domains.subdomains.SNationContainer;
+import io.github.adorableskullmaster.pw4j.domains.TradeHistory;
+import io.github.adorableskullmaster.pw4j.domains.Wars;
 import io.github.adorableskullmaster.pw4j.enums.ResourceType;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
@@ -21,6 +21,7 @@ public class WrapperTests {
       properties.load(getClass().getClassLoader().getResourceAsStream("testData.properties"));
       politicsAndWar = new PoliticsAndWarBuilder()
           .setApiKey(properties.getProperty("apiKey"))
+          .setEnableCache(false)
           .build();
     } catch (IOException e) {
       e.printStackTrace();
@@ -69,20 +70,33 @@ public class WrapperTests {
 
   @Test
   public void nationsQueryTest() {
+    // Check normal success
     assertTrue(politicsAndWar.getNations().isSuccess());
 
-    List<SNationContainer> nationsContainer = politicsAndWar.getNations(false, 913, 1000, 500).getNationsContainer();
-    boolean b = nationsContainer.stream()
-        .noneMatch(nationContainer -> Integer.parseInt(nationContainer.getVacmode()) > 0);
-    assertTrue(b);
+    // Check for any VM nation present
+    assertTrue(politicsAndWar.getNations(true)
+        .getNationsContainer()
+        .stream()
+        .anyMatch(nationContainer -> Integer.parseInt(nationContainer.getVacmode()) > 0));
 
-    boolean b1 = nationsContainer.stream()
-        .allMatch(nationContainer -> nationContainer.getAllianceid() == 913);
-    assertTrue(b1);
+    // Check for all non-VM + alliance
+    assertTrue(politicsAndWar.getNationsByAlliance(false, 913)
+        .getNationsContainer()
+        .stream()
+        .allMatch(nationContainer -> nationContainer.getAllianceid() == 913 && Integer.parseInt(nationContainer.getVacmode()) == 0));
 
-    boolean b2 = nationsContainer.stream()
-        .allMatch(nationContainer -> nationContainer.getScore() <= 1000 && nationContainer.getScore() >= 500);
-    assertTrue(b2);
+    // Check for all non-VM + score
+    assertTrue(politicsAndWar.getNationsByScore(false, 4000, 3500)
+        .getNationsContainer()
+        .stream()
+        .allMatch(nationContainer -> nationContainer.getScore() <= 4000 && nationContainer.getScore() >= 3500 && Integer.parseInt(nationContainer.getVacmode()) == 0));
+
+    // Check for all non-VM + alliance + score
+    assertTrue(politicsAndWar.getNations(false, 913, 1000, 500)
+        .getNationsContainer()
+        .stream()
+        .allMatch(nationContainer -> (nationContainer.getScore() <= 1000 && nationContainer.getScore() >= 500) && nationContainer.getAllianceid() == 913 &&
+            Integer.parseInt(nationContainer.getVacmode()) == 0));
   }
 
   @Test
@@ -92,18 +106,48 @@ public class WrapperTests {
 
   @Test
   public void warsQueryTest() {
-    assertTrue(politicsAndWar.getAllWars().isSuccess());
+    // Check normal success
+    assertTrue(politicsAndWar.getWars().isSuccess());
+
+    // Check size
     assertEquals(50, politicsAndWar.getWarsByAmount(50).getWars().size());
-    assertTrue(politicsAndWar.getWarsByAlliance(913).isSuccess());
-    assertEquals(50, politicsAndWar.getWars(50, 913).getWars().size());
+
+    // Check alliance
+    assertTrue(politicsAndWar.getWarsByAlliance(913)
+        .getWars()
+        .stream()
+        .anyMatch(sWarContainer -> sWarContainer.getAttackerAA().equalsIgnoreCase("Arrgh") ||
+            sWarContainer.getDefenderAA().equalsIgnoreCase("Arrgh")));
+
+    // Check size + alliance
+    Wars wars = politicsAndWar.getWars(50, 913);
+    assertEquals(50, wars.getWars().size());
+    assertTrue(wars.getWars()
+        .stream()
+        .anyMatch(sWarContainer -> sWarContainer.getAttackerAA().equalsIgnoreCase("Arrgh") ||
+            sWarContainer.getDefenderAA().equalsIgnoreCase("Arrgh")));
   }
 
   @Test
   public void tradeHistoryQueryTest() {
+    // Check normal success
     assertTrue(politicsAndWar.getAllTradehistory().isSuccess());
+
+    // Check size
     assertEquals(10, politicsAndWar.getTradehistoryByAmount(10).getTrades().size());
-    assertEquals(50, politicsAndWar.getTradehistory(50, ResourceType.FOOD, ResourceType.ALUMINUM).getTrades().size());
-    assertTrue(politicsAndWar.getTradehistoryByType(ResourceType.FOOD, ResourceType.ALUMINUM).isSuccess());
+
+    // Check type
+    assertTrue(politicsAndWar.getTradehistoryByType(ResourceType.FOOD)
+        .getTrades()
+        .stream()
+        .allMatch(tradeContainer -> tradeContainer.getResource().equalsIgnoreCase("food")));
+
+    // Check size + type
+    TradeHistory tradehistory = politicsAndWar.getTradehistory(10, ResourceType.FOOD);
+    assertEquals(10, tradehistory.getTrades().size());
+    assertTrue(tradehistory.getTrades()
+        .stream()
+        .allMatch(tradeContainer -> tradeContainer.getResource().equalsIgnoreCase("food")));
   }
 
   @Test

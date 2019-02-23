@@ -43,7 +43,7 @@ public class ApiQuery<T extends Entity> {
 
       InputStream stream = conn.getErrorStream();
 
-      if (stream == null) {
+      if (stream == null && (respCode >= 200 && respCode < 300)) {
         stream = conn.getInputStream();
         return new Response<>(convertStreamToString(stream), t);
       } else {

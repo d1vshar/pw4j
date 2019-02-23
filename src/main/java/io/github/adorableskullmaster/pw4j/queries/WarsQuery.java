@@ -13,7 +13,9 @@ public class WarsQuery implements IEntityQuery {
 
   public WarsQuery(int wid, Integer[] aids) {
     this.wid = wid;
-    this.aids = Arrays.copyOf(aids,aids.length);
+    if (aids != null)
+      this.aids = Arrays.copyOf(aids, aids.length);
+    else this.aids = null;
   }
 
   @Override

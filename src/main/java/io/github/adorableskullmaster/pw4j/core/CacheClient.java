@@ -2,6 +2,7 @@ package io.github.adorableskullmaster.pw4j.core;
 
 import io.github.adorableskullmaster.pw4j.domains.Entity;
 
+import java.io.PrintStream;
 import java.time.Instant;
 import java.util.Collections;
 import java.util.Comparator;
@@ -65,8 +66,8 @@ public class CacheClient {
     }
   }
 
-  public void printCacheStats() {
-    System.out.println(Integer.toString(getCacheSize()).concat("/").concat(Integer.toString(getCapacity())));
+  public void printCacheStats(PrintStream stream) {
+    stream.println(Integer.toString(getCacheSize()).concat("/").concat(Integer.toString(getCapacity())));
   }
 
   public int getCacheSize() {

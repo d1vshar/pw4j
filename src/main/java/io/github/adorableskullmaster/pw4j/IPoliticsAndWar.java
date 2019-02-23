@@ -35,7 +35,7 @@ public interface IPoliticsAndWar {
 
   War getWar(int warId);
 
-  Wars getAllWars();
+  Wars getWars();
 
   Wars getWarsByAmount(int amount);
 

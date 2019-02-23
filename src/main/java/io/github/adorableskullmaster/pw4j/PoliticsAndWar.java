@@ -95,7 +95,7 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   }
 
   @Override
-  public Wars getAllWars() {
+  public Wars getWars() {
     return (Wars) execute(new WarsQuery(-1, null).build());
   }
 
@@ -106,7 +106,7 @@ public class PoliticsAndWar implements IPoliticsAndWar {
 
   @Override
   public Wars getWarsByAlliance(Integer... alliance_ids) {
-    return (Wars) execute(new WarsQuery(-1, null).build());
+    return (Wars) execute(new WarsQuery(-1, alliance_ids).build());
   }
 
   @Override
