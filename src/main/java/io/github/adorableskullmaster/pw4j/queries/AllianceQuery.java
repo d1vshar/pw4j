@@ -1,19 +1,17 @@
 package io.github.adorableskullmaster.pw4j.queries;
 
+import io.github.adorableskullmaster.pw4j.core.UrlBuilder;
 import io.github.adorableskullmaster.pw4j.domains.Alliance;
 import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
-public class AllianceQuery implements IEntityQuery {
+public class AllianceQuery extends Query {
 
-  private final int aid;
-
-  public AllianceQuery(int aid) {
-    this.aid = aid;
+  public AllianceQuery(int aid, String apiKey) {
+    super(Integer.toString(aid), apiKey);
   }
 
   @Override
   public ApiQuery build() {
-    String url = QueryURL.ALLIANCE_URL.getUrl().concat("id=").concat(Integer.toString(aid));
-    return new ApiQuery<>(url, new Alliance());
+    return new ApiQuery<>(UrlBuilder.build(QueryURL.ALLIANCE_URL, args), new Alliance());
   }
 }

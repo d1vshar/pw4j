@@ -19,6 +19,7 @@ public class WrapperTests {
     try {
       Properties properties = new Properties();
       properties.load(getClass().getClassLoader().getResourceAsStream("testData.properties"));
+      System.out.println(properties.getProperty("apiKey"));
       politicsAndWar = new PoliticsAndWarBuilder()
           .setApiKey(properties.getProperty("apiKey"))
           .setEnableCache(false)
@@ -40,7 +41,7 @@ public class WrapperTests {
 
   @Test
   public void warQueryTest() {
-    assertTrue(politicsAndWar.getWar(385279).isSuccess());
+    assertTrue(politicsAndWar.getWar(411593).isSuccess());
   }
 
   @Test
@@ -58,12 +59,12 @@ public class WrapperTests {
     assertTrue(politicsAndWar.getApplicants(1584).isSuccess());
   }
 
-  @Test
+
   public void bankQueryTest() {
     assertTrue(politicsAndWar.getBank(913).isSuccess());
   }
 
-  @Test
+
   public void membersQueryTest() {
     assertTrue(politicsAndWar.getMembers(913).isSuccess());
   }
@@ -80,10 +81,10 @@ public class WrapperTests {
         .anyMatch(nationContainer -> Integer.parseInt(nationContainer.getVacmode()) > 0));
 
     // Check for all non-VM + alliance
-    assertTrue(politicsAndWar.getNationsByAlliance(false, 913)
+    assertTrue(politicsAndWar.getNationsByAlliance(false, 1742)
         .getNationsContainer()
         .stream()
-        .allMatch(nationContainer -> nationContainer.getAllianceid() == 913 && Integer.parseInt(nationContainer.getVacmode()) == 0));
+        .allMatch(nationContainer -> nationContainer.getAllianceid() == 1742 && Integer.parseInt(nationContainer.getVacmode()) == 0));
 
     // Check for all non-VM + score
     assertTrue(politicsAndWar.getNationsByScore(false, 4000, 3500)
@@ -92,10 +93,10 @@ public class WrapperTests {
         .allMatch(nationContainer -> nationContainer.getScore() <= 4000 && nationContainer.getScore() >= 3500 && Integer.parseInt(nationContainer.getVacmode()) == 0));
 
     // Check for all non-VM + alliance + score
-    assertTrue(politicsAndWar.getNations(false, 913, 1000, 500)
+    assertTrue(politicsAndWar.getNations(false, 1742, 1000, 500)
         .getNationsContainer()
         .stream()
-        .allMatch(nationContainer -> (nationContainer.getScore() <= 1000 && nationContainer.getScore() >= 500) && nationContainer.getAllianceid() == 913 &&
+        .allMatch(nationContainer -> (nationContainer.getScore() <= 1000 && nationContainer.getScore() >= 500) && nationContainer.getAllianceid() == 1742 &&
             Integer.parseInt(nationContainer.getVacmode()) == 0));
   }
 

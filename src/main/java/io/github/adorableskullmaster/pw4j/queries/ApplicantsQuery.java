@@ -1,19 +1,17 @@
 package io.github.adorableskullmaster.pw4j.queries;
 
+import io.github.adorableskullmaster.pw4j.core.UrlBuilder;
 import io.github.adorableskullmaster.pw4j.domains.Applicants;
 import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
-public class ApplicantsQuery implements IEntityQuery {
+public class ApplicantsQuery extends Query {
 
-  private final int aid;
-
-   public ApplicantsQuery(int aid) {
-     this.aid=aid;
+  public ApplicantsQuery(int aid, String apiKey) {
+    super(Integer.toString(aid), apiKey);
    }
 
   @Override
   public ApiQuery build() {
-    String url = QueryURL.APPLICANTS_URL.getUrl().concat(Integer.toString(aid));
-     return new ApiQuery<>(url, new Applicants());
+    return new ApiQuery<>(UrlBuilder.build(QueryURL.APPLICANTS_URL, args), new Applicants());
   }
 }

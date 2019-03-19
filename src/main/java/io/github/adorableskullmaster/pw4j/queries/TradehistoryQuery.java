@@ -1,5 +1,6 @@
 package io.github.adorableskullmaster.pw4j.queries;
 
+import io.github.adorableskullmaster.pw4j.core.UrlBuilder;
 import io.github.adorableskullmaster.pw4j.domains.TradeHistory;
 import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 import io.github.adorableskullmaster.pw4j.enums.ResourceType;
@@ -7,13 +8,13 @@ import io.github.adorableskullmaster.pw4j.enums.ResourceType;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class TradehistoryQuery extends AuthenticatedQuery implements IEntityQuery {
+public class TradehistoryQuery extends Query {
 
   private final Integer records;
   private final ResourceType[] resources;
 
-  public TradehistoryQuery(String apiKey, Integer records, ResourceType[] resources) {
-    super.apiKey = apiKey;
+  public TradehistoryQuery(Integer records, ResourceType[] resources, String apiKey) {
+    super(apiKey);
     this.records = records;
     if (resources != null)
       this.resources = Arrays.copyOf(resources, resources.length);
@@ -23,8 +24,7 @@ public class TradehistoryQuery extends AuthenticatedQuery implements IEntityQuer
 
   @Override
   public ApiQuery build() {
-    checkApiKey();
-    String url = QueryURL.TRADEHISTORY_URL.getUrl().concat("key=").concat(apiKey);
+    String url = UrlBuilder.build(QueryURL.TRADEHISTORY_URL, args);
     if (records != null)
       url = url.concat("&records=").concat(Integer.toString(records));
     if (resources != null)

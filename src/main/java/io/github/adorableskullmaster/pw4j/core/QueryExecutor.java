@@ -1,15 +1,18 @@
 package io.github.adorableskullmaster.pw4j.core;
 
+import io.github.adorableskullmaster.pw4j.PoliticsAndWarAPIException;
 import io.github.adorableskullmaster.pw4j.domains.Entity;
 import io.github.adorableskullmaster.pw4j.queries.ApiQuery;
 
 public class QueryExecutor {
 
+  private String apiKey;
   private CacheClient cacheClient = null;
   private boolean testServerMode;
   private boolean enableCache;
 
-  public QueryExecutor(boolean enableCache, boolean testServerMode, int cacheMaxSize, long cacheRetainTime) {
+  public QueryExecutor(String apiKey, boolean enableCache, boolean testServerMode, int cacheMaxSize, long cacheRetainTime) {
+    this.apiKey = apiKey;
     this.enableCache = enableCache;
     this.testServerMode = testServerMode;
     if (this.enableCache)
@@ -17,6 +20,8 @@ public class QueryExecutor {
   }
 
   public Entity execute(ApiQuery apiQuery) {
+    if (!checkApiKey())
+      throw new PoliticsAndWarAPIException("No API KEY set. Current apiKey =");
     apiQuery.buildUrlStr(testServerMode);
     String url = apiQuery.getUrlStr();
     if (this.enableCache && cacheClient.contains(url))
@@ -43,5 +48,9 @@ public class QueryExecutor {
   public void clearCacheClient() {
     if (cacheClient != null)
       cacheClient.clear();
+  }
+
+  private boolean checkApiKey() {
+    return apiKey != null && !apiKey.isEmpty();
   }
 }

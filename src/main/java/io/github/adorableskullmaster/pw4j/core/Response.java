@@ -15,10 +15,12 @@ public class Response<T extends Entity> {
   private String jsonStr;
   private Gson gson = new Gson();
   private T t;
+  private String url;
 
-  public Response(String jsonStr, T t) {
+  public Response(String jsonStr, T t, String url) {
     this.jsonStr = jsonStr;
     this.t = t;
+    this.url = url;
   }
 
   public String getJson() {
@@ -34,13 +36,13 @@ public class Response<T extends Entity> {
         if (jsonObject.has("error") || jsonObject.has("error_message") ||
             jsonObject.has("general_message") || jsonObject.has("message")) {
           if(jsonObject.has("general_message"))
-            throw new PoliticsAndWarAPIException("Unsuccessful API request. Error Received: " + jsonObject.get("general_message").getAsString());
+            throw new PoliticsAndWarAPIException("Unsuccessful API request. Error Received: " + jsonObject.get("general_message").getAsString(), url);
           else if(jsonObject.has("error"))
-            throw new PoliticsAndWarAPIException("Unsuccessful API request. Error Received: " + jsonObject.get("error").getAsString());
+            throw new PoliticsAndWarAPIException("Unsuccessful API request. Error Received: " + jsonObject.get("error").getAsString(), url);
           else if(jsonObject.has("error_message"))
-            throw new PoliticsAndWarAPIException("Unsuccessful API request. Error Received: " + jsonObject.get("error_message").getAsString());
+            throw new PoliticsAndWarAPIException("Unsuccessful API request. Error Received: " + jsonObject.get("error_message").getAsString(), url);
           else if(jsonObject.has("message"))
-            throw new PoliticsAndWarAPIException("Unsuccessful API request. Error Received: " + jsonObject.get("message").getAsString());
+            throw new PoliticsAndWarAPIException("Unsuccessful API request. Error Received: " + jsonObject.get("message").getAsString(), url);
         }
       }
       Type type = TypeToken.get(t.getClass()).getType();

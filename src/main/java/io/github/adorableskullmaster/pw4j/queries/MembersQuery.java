@@ -1,21 +1,17 @@
 package io.github.adorableskullmaster.pw4j.queries;
 
+import io.github.adorableskullmaster.pw4j.core.UrlBuilder;
 import io.github.adorableskullmaster.pw4j.domains.Members;
 import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
-public class MembersQuery extends AuthenticatedQuery implements IEntityQuery {
+public class MembersQuery extends Query {
 
-  private final int aid;
-
-  public MembersQuery(String apiKey, int aid) {
-    super.apiKey = apiKey;
-    this.aid = aid;
+  public MembersQuery(int aid, String apiKey) {
+    super(Integer.toString(aid), apiKey);
   }
 
   @Override
   public ApiQuery build() {
-    checkApiKey();
-    String url = QueryURL.MEMBERS_URL.getUrl().concat("?allianceid=").concat(Integer.toString(aid)).concat("&key=").concat(apiKey);
-    return new ApiQuery<>(url,new Members());
+    return new ApiQuery<>(UrlBuilder.build(QueryURL.MEMBERS_URL, args), new Members());
   }
 }

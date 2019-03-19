@@ -45,7 +45,7 @@ public class ApiQuery<T extends Entity> {
 
       if (stream == null && (respCode >= 200 && respCode < 300)) {
         stream = conn.getInputStream();
-        return new Response<>(convertStreamToString(stream), t);
+        return new Response<>(convertStreamToString(stream), t, urlStr);
       } else {
         throw new PoliticsAndWarAPIException(respMessage);
       }

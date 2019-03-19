@@ -13,7 +13,7 @@ public class PoliticsAndWarAPIException extends RuntimeException {
     super(cause);
   }
 
-  public PoliticsAndWarAPIException(String message, Throwable cause) {
-    super(message, cause);
+  public PoliticsAndWarAPIException(String message, String url) {
+    super(message + ". URL OF REQUEST: " + url);
   }
 }

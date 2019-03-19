@@ -13,50 +13,47 @@ public class PoliticsAndWar implements IPoliticsAndWar {
 
   PoliticsAndWar(String apiKey, Boolean enableCache, Boolean testServerMode, int cacheSize, long cacheRetainTime) {
     this.apiKey = apiKey;
-    if (enableCache)
-      executor = new QueryExecutor(true, testServerMode, cacheSize, cacheRetainTime);
-    else
-      executor = new QueryExecutor(false, testServerMode, cacheSize, cacheRetainTime);
+    executor = new QueryExecutor(this.apiKey, enableCache, testServerMode, cacheSize, cacheRetainTime);
   }
 
   @Override
   public Nation getNation(int nationId) {
-    return (Nation) execute(new NationQuery(nationId).build());
+    return (Nation) execute(new NationQuery(nationId, apiKey).build());
   }
 
   @Override
   public Nations getNations() {
-    return (Nations) execute(new NationsQuery(null, null, null, null).build());
+    return (Nations) execute(new NationsQuery(null, null, null, null, apiKey).build());
   }
 
   @Override
   public Nations getNations(boolean vm) {
-    return (Nations) execute(new NationsQuery(vm, null, null, null).build());
+    return (Nations) execute(new NationsQuery(vm, null, null, null, apiKey).build());
   }
 
   @Override
   public Nations getNationsByAlliance(boolean vm, int allianceId) {
-    return (Nations) execute(new NationsQuery(vm, null, null, allianceId).build());
+    return (Nations) execute(new NationsQuery(vm, null, null, allianceId, apiKey).build());
   }
 
   @Override
   public Nations getNationsByScore(boolean vm, int maxScore, int minScore) {
-    return (Nations) execute(new NationsQuery(vm, maxScore, minScore, null).build());
+    return (Nations) execute(new NationsQuery(vm, maxScore, minScore, null, apiKey).build());
   }
 
   @Override
   public Nations getNations(boolean vm, int allianceId, int maxScore, int minScore) {
-    return (Nations) execute(new NationsQuery(vm, maxScore, minScore, allianceId).build());
+    return (Nations) execute(new NationsQuery(vm, maxScore, minScore, allianceId, apiKey).build());
   }
 
   @Override
   public Alliance getAlliance(int allianceId) {
-    return (Alliance) execute(new AllianceQuery(allianceId).build());
+    return (Alliance) execute(new AllianceQuery(allianceId, apiKey).build());
   }
 
   @Override
   public Alliances getAlliances() {
-    return (Alliances) execute(new AlliancesQuery().build());
+    return (Alliances) execute(new AlliancesQuery(apiKey).build());
   }
 
   @Override
@@ -71,72 +68,72 @@ public class PoliticsAndWar implements IPoliticsAndWar {
 
   @Override
   public Applicants getApplicants(int allianceId) {
-    return (Applicants) execute(new ApplicantsQuery(allianceId).build());
+    return (Applicants) execute(new ApplicantsQuery(allianceId, apiKey).build());
   }
 
   @Override
   public Bank getBank(int allianceId) {
-    return (Bank) execute(new BankQuery(apiKey, allianceId).build());
+    return (Bank) execute(new BankQuery(allianceId, apiKey).build());
   }
 
   @Override
   public Members getMembers(int allianceId) {
-    return (Members) execute(new MembersQuery(apiKey, allianceId).build());
+    return (Members) execute(new MembersQuery(allianceId, apiKey).build());
   }
 
   @Override
   public City getCity(int cityId) {
-    return (City) execute(new CityQuery(cityId).build());
+    return (City) execute(new CityQuery(cityId, apiKey).build());
   }
 
   @Override
   public War getWar(int warId) {
-    return (War) execute(new WarQuery(warId).build());
+    return (War) execute(new WarQuery(warId, apiKey).build());
   }
 
   @Override
   public Wars getWars() {
-    return (Wars) execute(new WarsQuery(-1, null).build());
+    return (Wars) execute(new WarsQuery(-1, null, apiKey).build());
   }
 
   @Override
   public Wars getWarsByAmount(int amount) {
-    return (Wars) execute(new WarsQuery(amount, null).build());
+    return (Wars) execute(new WarsQuery(amount, null, apiKey).build());
   }
 
   @Override
   public Wars getWarsByAlliance(Integer... alliance_ids) {
-    return (Wars) execute(new WarsQuery(-1, alliance_ids).build());
+    return (Wars) execute(new WarsQuery(-1, alliance_ids, apiKey).build());
   }
 
   @Override
   public Wars getWars(int amount, Integer... alliance_ids) {
-    return (Wars) execute(new WarsQuery(amount, alliance_ids).build());
+    return (Wars) execute(new WarsQuery(amount, alliance_ids, apiKey).build());
   }
 
   @Override
   public TradePrice getTradeprice(ResourceType resource) {
-    return (TradePrice) execute(new TradepriceQuery(resource).build());
+    return (TradePrice) execute(new TradepriceQuery(resource, apiKey).build());
   }
 
   @Override
   public TradeHistory getAllTradehistory() {
-    return (TradeHistory) execute(new TradehistoryQuery(apiKey, null, null).build());
+    return (TradeHistory) execute(new TradehistoryQuery(null, null, apiKey).build());
   }
 
   @Override
   public TradeHistory getTradehistoryByType(ResourceType... resources) {
-    return (TradeHistory) execute(new TradehistoryQuery(apiKey, null, resources).build());
+    return (TradeHistory) execute(new TradehistoryQuery(null, resources, apiKey).build());
   }
 
   @Override
   public TradeHistory getTradehistoryByAmount(Integer amount) {
-    return (TradeHistory) execute(new TradehistoryQuery(apiKey, amount, null).build());
+    return (TradeHistory) execute(new TradehistoryQuery(amount, null, apiKey).build());
   }
 
   @Override
   public TradeHistory getTradehistory(Integer amount, ResourceType... resources) {
-    return (TradeHistory) execute(new TradehistoryQuery(apiKey, amount, resources).build());
+    return (TradeHistory) execute(new TradehistoryQuery(amount, resources, apiKey).build());
   }
 
   public CacheClient getCacheClient() {

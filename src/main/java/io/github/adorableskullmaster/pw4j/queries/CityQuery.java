@@ -1,19 +1,17 @@
 package io.github.adorableskullmaster.pw4j.queries;
 
+import io.github.adorableskullmaster.pw4j.core.UrlBuilder;
 import io.github.adorableskullmaster.pw4j.domains.City;
 import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
-public class CityQuery implements IEntityQuery {
+public class CityQuery extends Query {
 
-  private final int cid;
-
-  public CityQuery(int cid) {
-    this.cid = cid;
+  public CityQuery(int cid, String apiKey) {
+    super(Integer.toString(cid), apiKey);
   }
 
   @Override
   public ApiQuery build() {
-    String url = QueryURL.CITY_URL.getUrl().concat("id=").concat(Integer.toString(cid));
-    return new ApiQuery<>(url, new City());
+    return new ApiQuery<>(UrlBuilder.build(QueryURL.CITY_URL, args), new City());
   }
 }

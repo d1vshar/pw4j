@@ -1,18 +1,20 @@
 package io.github.adorableskullmaster.pw4j.queries;
 
+import io.github.adorableskullmaster.pw4j.core.UrlBuilder;
 import io.github.adorableskullmaster.pw4j.domains.Nations;
 import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
 import java.util.HashMap;
 import java.util.stream.Collectors;
 
-public class NationsQuery implements IEntityQuery {
+public class NationsQuery extends Query {
   private final Boolean vm;
   private final Integer maxScore;
   private final Integer minScore;
   private final Integer allianceId;
 
-  public NationsQuery(Boolean vm, Integer maxScore, Integer minScore, Integer allianceId) {
+  public NationsQuery(Boolean vm, Integer maxScore, Integer minScore, Integer allianceId, String apiKey) {
+    super(apiKey);
     this.vm = vm;
     this.maxScore = maxScore;
     this.minScore = minScore;
@@ -21,9 +23,9 @@ public class NationsQuery implements IEntityQuery {
 
   @Override
   public ApiQuery build() {
-    String url = QueryURL.NATIONS_URL.getUrl();
+    String url = UrlBuilder.build(QueryURL.NATIONS_URL, args);
     if (vm != null || maxScore != null || minScore != null || allianceId != null) {
-      url = url.concat("?");
+      url = url.concat("&");
       HashMap<String, String> params = new HashMap<>();
       if (vm != null)
         params.put("vm", vm.toString());

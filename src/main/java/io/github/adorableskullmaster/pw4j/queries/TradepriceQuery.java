@@ -1,20 +1,18 @@
 package io.github.adorableskullmaster.pw4j.queries;
 
+import io.github.adorableskullmaster.pw4j.core.UrlBuilder;
 import io.github.adorableskullmaster.pw4j.domains.TradePrice;
 import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 import io.github.adorableskullmaster.pw4j.enums.ResourceType;
 
-public class TradepriceQuery implements IEntityQuery {
+public class TradepriceQuery extends Query {
 
-  private final String resource;
-
-  public TradepriceQuery(ResourceType resource) {
-    this.resource = resource.getName();
+  public TradepriceQuery(ResourceType resource, String apiKey) {
+    super(resource.getName(), apiKey);
   }
 
   @Override
   public ApiQuery build() {
-    String url = QueryURL.TRADEPRICE_URL.getUrl().concat("resource=").concat(resource);
-    return new ApiQuery<>(url, new TradePrice());
+    return new ApiQuery<>(UrlBuilder.build(QueryURL.TRADEPRICE_URL, args), new TradePrice());
   }
 }
