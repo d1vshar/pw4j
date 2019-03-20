@@ -59,12 +59,12 @@ public class WrapperTests {
     assertTrue(politicsAndWar.getApplicants(1584).isSuccess());
   }
 
-
+  @Test
   public void bankQueryTest() {
     assertTrue(politicsAndWar.getBank(913).isSuccess());
   }
 
-
+  @Test
   public void membersQueryTest() {
     assertTrue(politicsAndWar.getMembers(913).isSuccess());
   }
