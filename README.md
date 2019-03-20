@@ -1,23 +1,19 @@
 # pw4j: Java Wrapper for Politics and War API
 ### Alex's APIs Covered:
-* **Unauthenticated APIs:**
-    - Nation and Nations API
-    - Alliances and Alliances API
-    - War and Wars API
-    - Tradeprice API
-    - City API
-    - Applicants API
-* **Authenticated APIs:** *(Require `apiKey`)*
-    - Tradehistory API
-    - Alliance Bank and Members API
-    - Nation-Military API
-    - All-Cities API
+- Nation and Nations API
+- Alliances and Alliances API
+- War and Wars API
+- Tradeprice and Tradehistory API
+- City and All-Cities API
+- Applicants and Members API
+- Alliance Bank API
+- Nation-Military API
     
 >**Note:** All unauthenticated APIs will be made authenticated by game devs in future releases. 
 
 ### Features
 - Simple design to handle API requests.
-- In-built cache system for faster performance.
+- In-built cache system for faster requests.
 - Easy object models that encapsulate JSON handling.
 - Proper Exceptions are thrown on Connectivity failures or API Query failures.
 - Don't need to worry about Alex's stupid API.
@@ -28,7 +24,7 @@ Please have a look at the [wiki](https://github.com/Adorable-SkullMaster/pw4j/wi
 
 ### Missing Features
 
-I've added quite a lot of features in last few versions. Please suggest more in issues.
+War-Attacks API is missing. I am planning to support it in near future but delaying due to stupid JSON structure of the endpoint.
 
 ## Errors and Issues or Suggestions
 Make an issue [here](https://github.com/Adorable-SkullMaster/pw4j/issues) if you are facing errors, problems, unintended behaviour, need help or to drop a suggestion.
