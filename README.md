@@ -9,8 +9,6 @@
 - Alliance Bank API
 - Nation-Military API
     
->**Note:** All unauthenticated APIs will be made authenticated by game devs in future releases. 
-
 ### Features
 - Simple design to handle API requests.
 - In-built cache system for faster requests.
