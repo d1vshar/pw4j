@@ -8,6 +8,9 @@
 - Applicants and Members API
 - Alliance Bank API
 - Nation-Military API
+
+### Scrape Clients (All are allowed withing game rules and widely used among the alliances)
+- Bank Withdrawal Client : You can withdraw money from Bank to Nation/another Alliance
     
 ### Features
 - Simple design to handle API requests.
@@ -20,9 +23,13 @@
 
 Please have a look at the [wiki](https://github.com/Adorable-SkullMaster/pw4j/wiki).
 
-### Missing Features
+### Missing but planned Features
 
-War-Attacks API is missing. I am planning to support it in near future but delaying due to stupid JSON structure of the endpoint.
+- War-Attacks API is missing. I am planning to support it in near future but delaying due to stupid JSON structure of the endpoint.
+- Messaging Client to send Messages.
+- Nation Transaction Client for getting transactions of a Nation.
+- Alliance Client for merging the existing `AllianceWithdrawBankClient` along with tax changes client, tax Records client, member and applicants role change 
+client.
 
 ## Errors and Issues or Suggestions
 Make an issue [here](https://github.com/Adorable-SkullMaster/pw4j/issues) if you are facing errors, problems, unintended behaviour, need help or to drop a suggestion.
