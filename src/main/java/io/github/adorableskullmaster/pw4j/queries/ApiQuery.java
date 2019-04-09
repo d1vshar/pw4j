@@ -31,7 +31,7 @@ public class ApiQuery<T extends Entity> {
     urlStr = baseUrl.concat(urlPart);
   }
 
-  public Response fetchAPI() {
+  public Response fetchAPI() throws IOException {
     HttpURLConnection conn = null;
     try {
       URL url = new URL(urlStr);
@@ -49,8 +49,6 @@ public class ApiQuery<T extends Entity> {
       } else {
         throw new PoliticsAndWarAPIException(respMessage);
       }
-    } catch (IOException e) {
-      throw new PoliticsAndWarAPIException(e);
     } finally {
       if(conn != null) {
         conn.disconnect();

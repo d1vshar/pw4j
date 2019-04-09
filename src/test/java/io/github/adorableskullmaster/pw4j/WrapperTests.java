@@ -30,47 +30,47 @@ public class WrapperTests {
   }
 
   @Test
-  public void nationQueryTest() {
+  public void nationQueryTest() throws IOException {
     assertEquals("Mountania", politicsAndWar.getNation(6).getName());
   }
 
   @Test
-  public void allianceQueryTest() {
+  public void allianceQueryTest() throws IOException {
     assertEquals("Arrgh", politicsAndWar.getAlliance(913).getName());
   }
 
   @Test
-  public void warQueryTest() {
+  public void warQueryTest() throws IOException {
     assertTrue(politicsAndWar.getWar(411593).isSuccess());
   }
 
   @Test
-  public void cityQueryTest() {
+  public void cityQueryTest() throws IOException {
     assertEquals("10618", politicsAndWar.getCity(10618).getCityid());
   }
 
   @Test
-  public void tradepriceQueryTest() {
+  public void tradepriceQueryTest() throws IOException {
     assertEquals("food", politicsAndWar.getTradeprice(ResourceType.FOOD).getResource());
   }
 
   @Test
-  public void applicantsQueryTest() {
+  public void applicantsQueryTest() throws IOException {
     assertTrue(politicsAndWar.getApplicants(1584).isSuccess());
   }
 
   @Test
-  public void bankQueryTest() {
+  public void bankQueryTest() throws IOException {
     assertTrue(politicsAndWar.getBank(913).isSuccess());
   }
 
   @Test
-  public void membersQueryTest() {
+  public void membersQueryTest() throws IOException {
     assertTrue(politicsAndWar.getMembers(913).isSuccess());
   }
 
   @Test
-  public void nationsQueryTest() {
+  public void nationsQueryTest() throws IOException {
     // Check normal success
     assertTrue(politicsAndWar.getNations().isSuccess());
 
@@ -101,12 +101,12 @@ public class WrapperTests {
   }
 
   @Test
-  public void alliancesQueryTest() {
+  public void alliancesQueryTest() throws IOException {
     assertTrue(politicsAndWar.getAlliances().isSuccess());
   }
 
   @Test
-  public void warsQueryTest() {
+  public void warsQueryTest() throws IOException {
     // Check normal success
     assertTrue(politicsAndWar.getWars().isSuccess());
 
@@ -130,7 +130,7 @@ public class WrapperTests {
   }
 
   @Test
-  public void tradeHistoryQueryTest() {
+  public void tradeHistoryQueryTest() throws IOException {
     // Check normal success
     assertTrue(politicsAndWar.getAllTradehistory().isSuccess());
 
@@ -138,7 +138,7 @@ public class WrapperTests {
     assertEquals(10, politicsAndWar.getTradehistoryByAmount(10).getTrades().size());
 
     // Check type
-    assertTrue(politicsAndWar.getTradehistoryByType(ResourceType.FOOD)
+    assertEquals(true, politicsAndWar.getTradehistoryByType(ResourceType.FOOD)
         .getTrades()
         .stream()
         .allMatch(tradeContainer -> tradeContainer.getResource().equalsIgnoreCase("food")));
@@ -152,12 +152,12 @@ public class WrapperTests {
   }
 
   @Test
-  public void allCitiesQueryTest() {
+  public void allCitiesQueryTest() throws IOException {
     assertTrue(politicsAndWar.getAllCities().isSuccess());
   }
 
   @Test
-  public void allMilitariesQueryTest() {
+  public void allMilitariesQueryTest() throws IOException {
     assertTrue(politicsAndWar.getAllMilitaries().isSuccess());
   }
 }

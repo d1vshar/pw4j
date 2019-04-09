@@ -1,25 +1,32 @@
 package io.github.adorableskullmaster.pw4j.enums;
 
 public enum ResourceType {
-  FOOD("food"),
-  COAL("coal"),
-  OIL("oil"),
-  URANIUM("uranium"),
-  LEAD("lead"),
-  IRON("iron"),
-  BAUXITE("bauxite"),
-  GASONLINE("gasoline"),
-  MUNITIONS("munitions"),
-  STEEL("steel"),
-  ALUMINUM("aluminum");
+  MONEY("money", "withmoney"),
+  FOOD("food", "withfood"),
+  COAL("coal", "withcoal"),
+  OIL("oil", "withoil"),
+  URANIUM("uranium", "withuranium"),
+  LEAD("lead", "withlead"),
+  IRON("iron", "withiron"),
+  BAUXITE("bauxite", "withbauxite"),
+  GASONLINE("gasoline", "withgasoline"),
+  MUNITIONS("munitions", "withmunitions"),
+  STEEL("steel", "withsteel"),
+  ALUMINUM("aluminum", "withaluminum");
 
   private String name;
+  private String bankString;
 
-  ResourceType(String name) {
+  ResourceType(String name, String bankString) {
     this.name = name;
+    this.bankString = bankString;
   }
 
   public String getName() {
     return name;
+  }
+
+  public String getBankString() {
+    return bankString;
   }
 }

@@ -27,8 +27,7 @@ public class Response<T extends Entity> {
     return jsonStr;
   }
 
-  public T getEntity() {
-    try {
+  public T getEntity() throws JsonSyntaxException {
       JsonElement jsonElement = new JsonParser().parse(jsonStr);
       JsonObject jsonObject = jsonElement.getAsJsonObject();
       if(!t.getClass().getName().equals(Wars.class.getName()) || !t.getClass().getName().equals(Alliances.class.getName()) ||
@@ -47,8 +46,5 @@ public class Response<T extends Entity> {
       }
       Type type = TypeToken.get(t.getClass()).getType();
       return gson.fromJson(jsonStr,type);
-    } catch (JsonSyntaxException e) {
-      throw new PoliticsAndWarAPIException(e);
-    }
   }
 }

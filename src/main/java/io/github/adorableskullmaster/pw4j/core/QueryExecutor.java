@@ -4,6 +4,8 @@ import io.github.adorableskullmaster.pw4j.PoliticsAndWarAPIException;
 import io.github.adorableskullmaster.pw4j.domains.Entity;
 import io.github.adorableskullmaster.pw4j.queries.ApiQuery;
 
+import java.io.IOException;
+
 public class QueryExecutor {
 
   private String apiKey;
@@ -19,7 +21,7 @@ public class QueryExecutor {
       cacheClient = new CacheClient(cacheMaxSize, cacheRetainTime);
   }
 
-  public Entity execute(ApiQuery apiQuery) {
+  public Entity execute(ApiQuery apiQuery) throws IOException {
     if (!checkApiKey())
       throw new PoliticsAndWarAPIException("No API KEY set. Current apiKey =");
     apiQuery.buildUrlStr(testServerMode);
@@ -34,7 +36,7 @@ public class QueryExecutor {
     return cacheClient.getIfExists(url);
   }
 
-  private Entity getFromSource(ApiQuery apiQuery) {
+  private Entity getFromSource(ApiQuery apiQuery) throws IOException {
     Entity entity = apiQuery.fetchAPI().getEntity();
     if (this.enableCache)
       cacheClient.add(apiQuery.getUrlStr(), entity);

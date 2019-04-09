@@ -25,57 +25,57 @@ public class ExceptionTests {
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void nationExceptionTest() {
+  public void nationExceptionTest() throws IOException {
     politicsAndWar.getNation(1024);
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void allianceExceptionTest() {
+  public void allianceExceptionTest() throws IOException {
     politicsAndWar.getAlliance(2);
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void warExceptionTest() {
+  public void warExceptionTest() throws IOException {
     politicsAndWar.getWar(356);
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void cityExceptionTest() {
+  public void cityExceptionTest() throws IOException {
     politicsAndWar.getCity(1);
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void bankExceptionTest() {
+  public void bankExceptionTest() throws IOException {
     politicsAndWar.getBank(2);
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void applicantExceptionTest() {
+  public void applicantExceptionTest() throws IOException {
     politicsAndWar.getApplicants(2);
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void membersExceptionTest() {
+  public void membersExceptionTest() throws IOException {
     politicsAndWar.getMembers(2);
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void tradeHistoryExceptionTest() {
+  public void tradeHistoryExceptionTest() throws IOException {
     politicsAndWar.getTradehistoryByAmount(0);
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void allCitiesExceptionTest() {
+  public void allCitiesExceptionTest() throws IOException {
     politicsAndWar2.getAllCities();
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void allMilitariesTest() {
+  public void allMilitariesTest() throws IOException {
     politicsAndWar2.getAllMilitaries();
   }
 
   @Test(expected = PoliticsAndWarAPIException.class)
-  public void apiKeyExceptionTest() {
+  public void apiKeyExceptionTest() throws IOException {
     politicsAndWar2.getMembers(913);
   }
 }

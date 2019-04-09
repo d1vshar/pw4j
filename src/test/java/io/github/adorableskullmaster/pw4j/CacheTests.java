@@ -2,6 +2,7 @@ package io.github.adorableskullmaster.pw4j;
 
 import org.junit.Test;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
 
@@ -17,7 +18,7 @@ public class CacheTests {
   }
 
   @Test
-  public void cacheResponseTimeTest() {
+  public void cacheResponseTimeTest() throws IOException {
     politicsAndWar.getNations();
     Instant start = Instant.now();
     politicsAndWar.getNations();
@@ -27,7 +28,7 @@ public class CacheTests {
   }
 
   @Test
-  public void cacheSizeTest() {
+  public void cacheSizeTest() throws IOException {
     politicsAndWar.clearCache();
     assertEquals(0, politicsAndWar.getCacheClient().getCacheSize());
     for (int i = 1; i <= 11; i++) {

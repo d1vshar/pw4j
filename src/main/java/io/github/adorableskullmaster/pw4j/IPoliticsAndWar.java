@@ -2,55 +2,59 @@ package io.github.adorableskullmaster.pw4j;
 
 import io.github.adorableskullmaster.pw4j.domains.*;
 import io.github.adorableskullmaster.pw4j.enums.ResourceType;
+import io.github.adorableskullmaster.pw4j.scrape.clients.AllianceWithdrawBankClient;
+
+import java.io.IOException;
 
 public interface IPoliticsAndWar {
 
-  Nation getNation(int nationId);
+  Nation getNation(int nationId) throws IOException;
 
-  Nations getNations();
+  Nations getNations() throws IOException;
 
-  Nations getNations(boolean vm);
+  Nations getNations(boolean vm) throws IOException;
 
-  Nations getNationsByAlliance(boolean vm, int allianceId);
+  Nations getNationsByAlliance(boolean vm, int allianceId) throws IOException;
 
-  Nations getNationsByScore(boolean vm, int maxScore, int minScore);
+  Nations getNationsByScore(boolean vm, int maxScore, int minScore) throws IOException;
 
-  Nations getNations(boolean vm, int allianceId, int maxScore, int minScore);
+  Nations getNations(boolean vm, int allianceId, int maxScore, int minScore) throws IOException;
 
-  Alliance getAlliance(int allianceId);
+  Alliance getAlliance(int allianceId) throws IOException;
 
-  Alliances getAlliances();
+  Alliances getAlliances() throws IOException;
 
-  NationMilitary getAllMilitaries();
+  NationMilitary getAllMilitaries() throws IOException;
 
-  AllCities getAllCities();
+  AllCities getAllCities() throws IOException;
 
-  Applicants getApplicants(int allianceId);
+  Applicants getApplicants(int allianceId) throws IOException;
 
-  Bank getBank(int allianceId);
+  Bank getBank(int allianceId) throws IOException;
 
-  Members getMembers(int allianceId);
+  Members getMembers(int allianceId) throws IOException;
 
-  City getCity(int cityId);
+  City getCity(int cityId) throws IOException;
 
-  War getWar(int warId);
+  War getWar(int warId) throws IOException;
 
-  Wars getWars();
+  Wars getWars() throws IOException;
 
-  Wars getWarsByAmount(int amount);
+  Wars getWarsByAmount(int amount) throws IOException;
 
-  Wars getWarsByAlliance(Integer[] alliance_ids);
+  Wars getWarsByAlliance(Integer[] alliance_ids) throws IOException;
 
-  Wars getWars(int amount, Integer[] alliance_ids);
+  Wars getWars(int amount, Integer[] alliance_ids) throws IOException;
 
-  TradePrice getTradeprice(ResourceType resource);
+  TradePrice getTradeprice(ResourceType resource) throws IOException;
 
-  TradeHistory getAllTradehistory();
+  TradeHistory getAllTradehistory() throws IOException;
 
-  TradeHistory getTradehistoryByType(ResourceType[] resources);
+  TradeHistory getTradehistoryByType(ResourceType[] resources) throws IOException;
 
-  TradeHistory getTradehistoryByAmount(Integer amount);
+  TradeHistory getTradehistoryByAmount(Integer amount) throws IOException;
 
-  TradeHistory getTradehistory(Integer amount, ResourceType[] resources);
+  TradeHistory getTradehistory(Integer amount, ResourceType[] resources) throws IOException;
 
+  AllianceWithdrawBankClient getAllianceWithdrawBankClient(int aid, String email, String password, boolean rememberMe, String recipient) throws IOException;
 }
