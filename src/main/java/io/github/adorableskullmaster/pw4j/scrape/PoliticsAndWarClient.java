@@ -35,8 +35,6 @@ public abstract class PoliticsAndWarClient {
     this.client = HttpClients.createDefault();
   }
 
-  public abstract void execute() throws IOException;
-
   private void login() throws IOException {
     if (email == null || password == null || email.isEmpty() || password.isEmpty())
       throw new PoliticsAndWarClientException("No Username or Password given.");
@@ -64,7 +62,7 @@ public abstract class PoliticsAndWarClient {
     client.execute(httpPost);
   }
 
-  private String get(String url, List<NameValuePair> params, boolean needsToBeLoggedIn) throws IOException {
+  protected String get(String url, List<NameValuePair> params, boolean needsToBeLoggedIn) throws IOException {
     if (needsToBeLoggedIn && !loggedIn)
       login();
 

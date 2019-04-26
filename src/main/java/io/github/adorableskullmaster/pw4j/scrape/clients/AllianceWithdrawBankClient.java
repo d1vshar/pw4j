@@ -32,7 +32,6 @@ public class AllianceWithdrawBankClient extends PoliticsAndWarClient {
     this.token = getToken(aid);
   }
 
-  @Override
   public void execute() throws IOException {
     List<NameValuePair> params = new ArrayList<>();
     for (Map.Entry<ResourceType, Double> entry : resources.entrySet()) {

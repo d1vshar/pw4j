@@ -2,6 +2,7 @@ package io.github.adorableskullmaster.pw4j;
 
 import io.github.adorableskullmaster.pw4j.domains.*;
 import io.github.adorableskullmaster.pw4j.enums.ResourceType;
+import io.github.adorableskullmaster.pw4j.scrape.clients.AllianceTransactionBankClient;
 import io.github.adorableskullmaster.pw4j.scrape.clients.AllianceWithdrawBankClient;
 
 import java.io.IOException;
@@ -57,4 +58,7 @@ public interface IPoliticsAndWar {
   TradeHistory getTradehistory(Integer amount, ResourceType[] resources) throws IOException;
 
   AllianceWithdrawBankClient getAllianceWithdrawBankClient(int aid, String email, String password, boolean rememberMe, String recipient) throws IOException;
+
+  AllianceTransactionBankClient getAllianceTransactionBankClient(int aid, String email, String password, boolean rememberMe) throws IOException;
+
 }
