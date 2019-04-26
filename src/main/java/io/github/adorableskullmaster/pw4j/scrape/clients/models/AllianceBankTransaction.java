@@ -7,7 +7,7 @@ import org.jsoup.select.Elements;
 
 import java.time.temporal.TemporalAccessor;
 
-public class ScrapedTransaction {
+public class AllianceBankTransaction {
   private TemporalAccessor date;
   private String note;
   private boolean isBeigeTransaction = false;
@@ -32,11 +32,11 @@ public class ScrapedTransaction {
   private double steel;
   private double aluminum;
 
-  public ScrapedTransaction() {
+  public AllianceBankTransaction() {
 
   }
 
-  public ScrapedTransaction(Elements columns) {
+  public AllianceBankTransaction(Elements columns) {
     Element dateElement = columns.get(1);
     date = Utility.parseTime(dateElement.text());
 

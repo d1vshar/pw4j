@@ -2,7 +2,7 @@ package io.github.adorableskullmaster.pw4j.scrape.clients;
 
 import io.github.adorableskullmaster.pw4j.scrape.PoliticsAndWarClient;
 import io.github.adorableskullmaster.pw4j.scrape.PoliticsAndWarClientException;
-import io.github.adorableskullmaster.pw4j.scrape.clients.models.ScrapedTransaction;
+import io.github.adorableskullmaster.pw4j.scrape.clients.models.AllianceBankTransaction;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,16 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllianceTransactionBankClient extends PoliticsAndWarClient {
-  private List<ScrapedTransaction> scrapedTransactions;
+  private List<AllianceBankTransaction> allianceBankTransactions;
   private int aid;
 
   public AllianceTransactionBankClient(int aid, String email, String password, boolean rememberMe) {
     super(email, password, rememberMe);
     this.aid = aid;
-    scrapedTransactions = new ArrayList<>();
+    allianceBankTransactions = new ArrayList<>();
   }
 
-  public List<ScrapedTransaction> execute() throws IOException {
+  public List<AllianceBankTransaction> execute() throws IOException {
     String html = get("https://politicsandwar.com/alliance/id=" + aid + "&display=bank", new ArrayList<>(), true);
     Document document = Jsoup.parse(html);
 
@@ -34,9 +34,9 @@ public class AllianceTransactionBankClient extends PoliticsAndWarClient {
     for (int i = 1; i < rows.size(); i++) {
       Element row = rows.get(i);
       Elements columns = row.select("td");
-      ScrapedTransaction scrapedTransaction = new ScrapedTransaction(columns);
-      scrapedTransactions.add(scrapedTransaction);
+      AllianceBankTransaction allianceBankTransaction = new AllianceBankTransaction(columns);
+      allianceBankTransactions.add(allianceBankTransaction);
     }
-    return scrapedTransactions;
+    return allianceBankTransactions;
   }
 }
