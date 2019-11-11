@@ -5,8 +5,6 @@ import io.github.adorableskullmaster.pw4j.core.QueryExecutor;
 import io.github.adorableskullmaster.pw4j.domains.*;
 import io.github.adorableskullmaster.pw4j.enums.ResourceType;
 import io.github.adorableskullmaster.pw4j.queries.*;
-import io.github.adorableskullmaster.pw4j.scrape.clients.AllianceTransactionBankClient;
-import io.github.adorableskullmaster.pw4j.scrape.clients.AllianceWithdrawBankClient;
 
 import java.io.IOException;
 
@@ -142,16 +140,6 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   @Override
   public TradeHistory getTradehistory(Integer amount, ResourceType... resources) throws IOException {
     return (TradeHistory) execute(new TradehistoryQuery(amount, resources, apiKey).build());
-  }
-
-  @Override
-  public AllianceWithdrawBankClient getAllianceWithdrawBankClient(int aid, String email, String password, boolean rememberMe, String recipient) throws IOException {
-    return new AllianceWithdrawBankClient(aid, email, password, rememberMe, recipient);
-  }
-
-  @Override
-  public AllianceTransactionBankClient getAllianceTransactionBankClient(int aid, String email, String password, boolean rememberMe) throws IOException {
-    return new AllianceTransactionBankClient(aid, email, password, rememberMe);
   }
 
   public CacheClient getCacheClient() {
