@@ -18,7 +18,7 @@ public class PoliticsAndWar implements IPoliticsAndWar {
     executor = new QueryExecutor(this.apiKey, enableCache, testServerMode, cacheSize, cacheRetainTime);
   }
 
-  public static PoliticsAndWar getDefaultInstance(String apiKey) {
+    public static PoliticsAndWar getBasicInstance(String apiKey) {
     return new PoliticsAndWar(apiKey, true, false, 50, 60000);
   }
 
