@@ -31,4 +31,4 @@ Make an issue [here](https://github.com/Adorable-SkullMaster/pw4j/issues) if you
 ## Contributing
 Read [CONTRIBUTING.md](CONTRIBUTING.md)
 
-Author: [Adorable-SkullMaster](https://github.com/Adorable-SkullMaster)
+Author: [l0llygag](https://github.com/l0llygag)
