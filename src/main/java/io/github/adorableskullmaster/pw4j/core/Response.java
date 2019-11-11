@@ -20,7 +20,7 @@ public class Response<T extends Entity> {
   public Response(String jsonStr, T t, String url) {
     this.jsonStr = jsonStr;
     this.t = t;
-    this.url = url;
+    this.url = Utility.obfuscateApiKey(url);
   }
 
   public String getJson() {
@@ -30,6 +30,7 @@ public class Response<T extends Entity> {
   public T getEntity() throws JsonSyntaxException {
       JsonElement jsonElement = new JsonParser().parse(jsonStr);
       JsonObject jsonObject = jsonElement.getAsJsonObject();
+
       if(!t.getClass().getName().equals(Wars.class.getName()) || !t.getClass().getName().equals(Alliances.class.getName()) ||
           !t.getClass().getName().equals(Nations.class.getName())) {
         if (jsonObject.has("error") || jsonObject.has("error_message") ||

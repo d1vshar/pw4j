@@ -25,6 +25,7 @@ public class CacheClient {
 
   void add(String url, Entity entity) {
     update();
+    url = Utility.obfuscateApiKey(url);
     if (cacheMap.size() >= CACHE_MAX_SIZE)
       removeOldest();
     cacheMap.put(url, entity);
@@ -33,11 +34,11 @@ public class CacheClient {
 
   boolean contains(String url) {
     update();
-    return cacheMap.containsKey(url);
+    return cacheMap.containsKey(Utility.obfuscateApiKey(url));
   }
 
   Entity getIfExists(String url) {
-    return cacheMap.get(url);
+    return cacheMap.get(Utility.obfuscateApiKey(url));
   }
 
   void clear() {
