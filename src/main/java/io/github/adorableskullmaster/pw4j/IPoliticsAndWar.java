@@ -21,6 +21,8 @@ public interface IPoliticsAndWar {
 
   Alliance getAlliance(int allianceId) throws IOException;
 
+  AllianceMembers getAllianceMembers(int allianceId) throws IOException;
+
   Alliances getAlliances() throws IOException;
 
   NationMilitary getAllMilitaries() throws IOException;
@@ -55,4 +57,13 @@ public interface IPoliticsAndWar {
 
   TradeHistory getTradehistory(Integer amount, ResourceType[] resources) throws IOException;
 
+  WarAttacks getWarAttacks() throws IOException;
+
+  WarAttacks getWarAttacksByWarId(int warId) throws IOException;
+
+  WarAttacks getWarAttacksByMinWarAttackId(int minWarAttackId) throws IOException;
+
+  WarAttacks getWarAttacksByMaxWarAttackId(int maxWarAttackId) throws IOException;
+
+  WarAttacks getWarAttacks(int warId, int minWarAttackId, int maxWarAttackId) throws IOException;
 }

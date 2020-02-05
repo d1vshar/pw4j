@@ -11,7 +11,7 @@ public class AllianceMembersQuery extends Query {
     }
 
     @Override
-    ApiQuery build() {
+    public ApiQuery build() {
         String url = UrlBuilder.build(QueryURL.ALLIANCE_MEMBERS_URL, args);
 
         return new ApiQuery<>(url, new AllianceMembers());

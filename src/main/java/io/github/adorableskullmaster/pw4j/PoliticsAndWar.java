@@ -19,8 +19,8 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   }
 
     public static PoliticsAndWar getBasicInstance(String apiKey) {
-    return new PoliticsAndWar(apiKey, true, false, 50, 60000);
-  }
+      return new PoliticsAndWar(apiKey, true, false, 50, 60000);
+    }
 
   @Override
   public Nation getNation(int nationId) throws IOException {
@@ -55,6 +55,11 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   @Override
   public Alliance getAlliance(int allianceId) throws IOException {
     return (Alliance) execute(new AllianceQuery(allianceId, apiKey).build());
+  }
+
+  @Override
+  public AllianceMembers getAllianceMembers(int allianceId) throws IOException {
+    return (AllianceMembers) execute(new AllianceMembersQuery(allianceId, apiKey).build());
   }
 
   @Override
@@ -140,6 +145,31 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   @Override
   public TradeHistory getTradehistory(Integer amount, ResourceType... resources) throws IOException {
     return (TradeHistory) execute(new TradehistoryQuery(amount, resources, apiKey).build());
+  }
+
+  @Override
+  public WarAttacks getWarAttacks() throws IOException {
+    return (WarAttacks) execute(new WarAttacksQuery(null, null, null, apiKey).build());
+  }
+
+  @Override
+  public WarAttacks getWarAttacksByWarId(int warId) throws IOException {
+    return (WarAttacks) execute(new WarAttacksQuery(warId, null, null, apiKey).build());
+  }
+
+  @Override
+  public WarAttacks getWarAttacksByMinWarAttackId(int minWarAttackId) throws IOException {
+    return (WarAttacks) execute(new WarAttacksQuery(null, minWarAttackId, null, apiKey).build());
+  }
+
+  @Override
+  public WarAttacks getWarAttacksByMaxWarAttackId(int maxWarAttackId) throws IOException {
+    return (WarAttacks) execute(new WarAttacksQuery(null, null, maxWarAttackId, apiKey).build());
+  }
+
+  @Override
+  public WarAttacks getWarAttacks(int warId, int minWarAttackId, int maxWarAttackId) throws IOException {
+    return (WarAttacks) execute(new WarAttacksQuery(warId, minWarAttackId, maxWarAttackId, apiKey).build());
   }
 
   public CacheClient getCacheClient() {

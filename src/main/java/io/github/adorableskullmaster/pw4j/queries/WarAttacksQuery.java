@@ -18,7 +18,7 @@ public class WarAttacksQuery extends Query {
     }
 
     @Override
-    ApiQuery build() {
+    public ApiQuery build() {
         String url = UrlBuilder.build(QueryURL.WAR_ATTACKS_URL, args);
 
         if (war_id != null) {
