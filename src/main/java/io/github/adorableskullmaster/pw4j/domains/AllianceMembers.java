@@ -20,16 +20,8 @@ public class AllianceMembers extends Entity {
         return success;
     }
 
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
     public List<AllianceMembersContainer> getNations() {
         return nations;
-    }
-
-    public void setNations(List<AllianceMembersContainer> nations) {
-        this.nations = nations;
     }
 
     @Override

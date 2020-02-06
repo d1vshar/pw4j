@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class ApiQuery<T extends Entity> {
 
@@ -22,7 +23,7 @@ public class ApiQuery<T extends Entity> {
   }
 
   private static String convertStreamToString(java.io.InputStream is) {
-    java.util.Scanner s = new java.util.Scanner(is, "UTF-8").useDelimiter("\\A");
+    java.util.Scanner s = new java.util.Scanner(is, StandardCharsets.UTF_8).useDelimiter("\\A");
     return s.hasNext() ? s.next() : "";
   }
 

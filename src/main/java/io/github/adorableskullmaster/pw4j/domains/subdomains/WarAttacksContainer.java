@@ -76,6 +76,98 @@ public class WarAttacksContainer {
     @Expose
     private String defMunUsed;
 
+    public String getWarAttackId() {
+        return warAttackId;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getWarId() {
+        return warId;
+    }
+
+    public String getAttackerNationId() {
+        return attackerNationId;
+    }
+
+    public String getDefenderNationId() {
+        return defenderNationId;
+    }
+
+    public String getAttackType() {
+        return attackType;
+    }
+
+    public String getVictor() {
+        return victor;
+    }
+
+    public String getSuccess() {
+        return success;
+    }
+
+    public String getAttcas1() {
+        return attcas1;
+    }
+
+    public String getAttcas2() {
+        return attcas2;
+    }
+
+    public String getDefcas1() {
+        return defcas1;
+    }
+
+    public String getDefcas2() {
+        return defcas2;
+    }
+
+    public String getCityId() {
+        return cityId;
+    }
+
+    public String getInfraDestroyed() {
+        return infraDestroyed;
+    }
+
+    public String getImprovementsDestroyed() {
+        return improvementsDestroyed;
+    }
+
+    public String getMoneyLooted() {
+        return moneyLooted;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public String getCityInfraBefore() {
+        return cityInfraBefore;
+    }
+
+    public String getInfraDestroyedValue() {
+        return infraDestroyedValue;
+    }
+
+    public String getAttGasUsed() {
+        return attGasUsed;
+    }
+
+    public String getAttMunUsed() {
+        return attMunUsed;
+    }
+
+    public String getDefGasUsed() {
+        return defGasUsed;
+    }
+
+    public String getDefMunUsed() {
+        return defMunUsed;
+    }
+
     @Override
     public String toString() {
         return "WarAttacksContainer{" +
@@ -138,189 +230,5 @@ public class WarAttacksContainer {
     @Override
     public int hashCode() {
         return Objects.hash(warAttackId, date, warId, attackerNationId, defenderNationId, attackType, victor, success, attcas1, attcas2, defcas1, defcas2, cityId, infraDestroyed, improvementsDestroyed, moneyLooted, note, cityInfraBefore, infraDestroyedValue, attGasUsed, attMunUsed, defGasUsed, defMunUsed);
-    }
-
-    public String getWarAttackId() {
-        return warAttackId;
-    }
-
-    public void setWarAttackId(String warAttackId) {
-        this.warAttackId = warAttackId;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getWarId() {
-        return warId;
-    }
-
-    public void setWarId(String warId) {
-        this.warId = warId;
-    }
-
-    public String getAttackerNationId() {
-        return attackerNationId;
-    }
-
-    public void setAttackerNationId(String attackerNationId) {
-        this.attackerNationId = attackerNationId;
-    }
-
-    public String getDefenderNationId() {
-        return defenderNationId;
-    }
-
-    public void setDefenderNationId(String defenderNationId) {
-        this.defenderNationId = defenderNationId;
-    }
-
-    public String getAttackType() {
-        return attackType;
-    }
-
-    public void setAttackType(String attackType) {
-        this.attackType = attackType;
-    }
-
-    public String getVictor() {
-        return victor;
-    }
-
-    public void setVictor(String victor) {
-        this.victor = victor;
-    }
-
-    public String getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(String success) {
-        this.success = success;
-    }
-
-    public String getAttcas1() {
-        return attcas1;
-    }
-
-    public void setAttcas1(String attcas1) {
-        this.attcas1 = attcas1;
-    }
-
-    public String getAttcas2() {
-        return attcas2;
-    }
-
-    public void setAttcas2(String attcas2) {
-        this.attcas2 = attcas2;
-    }
-
-    public String getDefcas1() {
-        return defcas1;
-    }
-
-    public void setDefcas1(String defcas1) {
-        this.defcas1 = defcas1;
-    }
-
-    public String getDefcas2() {
-        return defcas2;
-    }
-
-    public void setDefcas2(String defcas2) {
-        this.defcas2 = defcas2;
-    }
-
-    public String getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(String cityId) {
-        this.cityId = cityId;
-    }
-
-    public String getInfraDestroyed() {
-        return infraDestroyed;
-    }
-
-    public void setInfraDestroyed(String infraDestroyed) {
-        this.infraDestroyed = infraDestroyed;
-    }
-
-    public String getImprovementsDestroyed() {
-        return improvementsDestroyed;
-    }
-
-    public void setImprovementsDestroyed(String improvementsDestroyed) {
-        this.improvementsDestroyed = improvementsDestroyed;
-    }
-
-    public String getMoneyLooted() {
-        return moneyLooted;
-    }
-
-    public void setMoneyLooted(String moneyLooted) {
-        this.moneyLooted = moneyLooted;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public String getCityInfraBefore() {
-        return cityInfraBefore;
-    }
-
-    public void setCityInfraBefore(String cityInfraBefore) {
-        this.cityInfraBefore = cityInfraBefore;
-    }
-
-    public String getInfraDestroyedValue() {
-        return infraDestroyedValue;
-    }
-
-    public void setInfraDestroyedValue(String infraDestroyedValue) {
-        this.infraDestroyedValue = infraDestroyedValue;
-    }
-
-    public String getAttGasUsed() {
-        return attGasUsed;
-    }
-
-    public void setAttGasUsed(String attGasUsed) {
-        this.attGasUsed = attGasUsed;
-    }
-
-    public String getAttMunUsed() {
-        return attMunUsed;
-    }
-
-    public void setAttMunUsed(String attMunUsed) {
-        this.attMunUsed = attMunUsed;
-    }
-
-    public String getDefGasUsed() {
-        return defGasUsed;
-    }
-
-    public void setDefGasUsed(String defGasUsed) {
-        this.defGasUsed = defGasUsed;
-    }
-
-    public String getDefMunUsed() {
-        return defMunUsed;
-    }
-
-    public void setDefMunUsed(String defMunUsed) {
-        this.defMunUsed = defMunUsed;
     }
 }

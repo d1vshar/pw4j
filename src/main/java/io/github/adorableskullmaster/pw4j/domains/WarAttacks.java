@@ -15,6 +15,14 @@ public class WarAttacks extends Entity {
     @Expose
     private List<WarAttacksContainer> warAttacksContainers = null;
 
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public List<WarAttacksContainer> getWarAttacksContainers() {
+        return warAttacksContainers;
+    }
+
     @Override
     public String toString() {
         return "WarAttacks{" +
@@ -37,19 +45,4 @@ public class WarAttacks extends Entity {
         return Objects.hash(success, warAttacksContainers);
     }
 
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-    public List<WarAttacksContainer> getWarAttacksContainers() {
-        return warAttacksContainers;
-    }
-
-    public void setWarAttacksContainers(List<WarAttacksContainer> warAttacksContainers) {
-        this.warAttacksContainers = warAttacksContainers;
-    }
 }

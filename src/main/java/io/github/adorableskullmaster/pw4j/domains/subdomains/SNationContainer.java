@@ -8,7 +8,7 @@ import java.util.Objects;
 public class SNationContainer {
   @SerializedName("nationid")
   @Expose
-  private int nationid;
+  private Integer nationid;
   @SerializedName("nation")
   @Expose
   private String nation;
@@ -29,33 +29,36 @@ public class SNationContainer {
   private String alliance;
   @SerializedName("allianceid")
   @Expose
-  private int allianceid;
+  private Integer allianceid;
   @SerializedName("allianceposition")
   @Expose
-  private int allianceposition;
+  private Integer allianceposition;
   @SerializedName("cities")
   @Expose
-  private int cities;
+  private Integer cities;
+  @SerializedName("infrastructure")
+  @Expose
+  private Integer infrastructure;
   @SerializedName("offensivewars")
   @Expose
-  private int offensivewars;
+  private Integer offensivewars;
   @SerializedName("defensivewars")
   @Expose
-  private int defensivewars;
+  private Integer defensivewars;
   @SerializedName("score")
   @Expose
-  private double score;
+  private Double score;
   @SerializedName("rank")
   @Expose
-  private int rank;
+  private Integer rank;
   @SerializedName("vacmode")
   @Expose
-  private String vacmode;
+  private Integer vacmode;
   @SerializedName("minutessinceactive")
   @Expose
-  private int minutessinceactive;
+  private Integer minutessinceactive;
 
-  public int getNationId() {
+  public Integer getNationid() {
     return nationid;
   }
 
@@ -83,39 +86,39 @@ public class SNationContainer {
     return alliance;
   }
 
-  public int getAllianceid() {
+  public Integer getAllianceid() {
     return allianceid;
   }
 
-  public int getAllianceposition() {
+  public Integer getAllianceposition() {
     return allianceposition;
   }
 
-  public int getCities() {
+  public Integer getCities() {
     return cities;
   }
 
-  public int getOffensivewars() {
+  public Integer getOffensivewars() {
     return offensivewars;
   }
 
-  public int getDefensivewars() {
+  public Integer getDefensivewars() {
     return defensivewars;
   }
 
-  public double getScore() {
+  public Double getScore() {
     return score;
   }
 
-  public int getRank() {
+  public Integer getRank() {
     return rank;
   }
 
-  public String getVacmode() {
+  public Integer getVacmode() {
     return vacmode;
   }
 
-  public int getMinutessinceactive() {
+  public Integer getMinutessinceactive() {
     return minutessinceactive;
   }
 
@@ -167,5 +170,13 @@ public class SNationContainer {
         ", vacmode='" + vacmode + '\'' +
         ", minutessinceactive=" + minutessinceactive +
         '}';
+  }
+
+  public Integer getInfrastructure() {
+    return infrastructure;
+  }
+
+  public void setInfrastructure(Integer infrastructure) {
+    this.infrastructure = infrastructure;
   }
 }

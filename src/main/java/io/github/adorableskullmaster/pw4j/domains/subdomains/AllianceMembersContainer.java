@@ -162,400 +162,200 @@ public class AllianceMembersContainer {
         return nationId;
     }
 
-    public void setNationId(Integer nationId) {
-        this.nationId = nationId;
-    }
-
     public String getNation() {
         return nation;
-    }
-
-    public void setNation(String nation) {
-        this.nation = nation;
     }
 
     public String getLeader() {
         return leader;
     }
 
-    public void setLeader(String leader) {
-        this.leader = leader;
-    }
-
     public String getWarPolicy() {
         return warPolicy;
-    }
-
-    public void setWarPolicy(String warPolicy) {
-        this.warPolicy = warPolicy;
     }
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public String getAlliance() {
         return alliance;
-    }
-
-    public void setAlliance(String alliance) {
-        this.alliance = alliance;
     }
 
     public Integer getAllianceId() {
         return allianceId;
     }
 
-    public void setAllianceId(Integer allianceId) {
-        this.allianceId = allianceId;
-    }
-
     public Integer getAllianceposition() {
         return allianceposition;
-    }
-
-    public void setAllianceposition(Integer allianceposition) {
-        this.allianceposition = allianceposition;
     }
 
     public Integer getCities() {
         return cities;
     }
 
-    public void setCities(Integer cities) {
-        this.cities = cities;
-    }
-
     public Integer getOffensivewars() {
         return offensivewars;
-    }
-
-    public void setOffensivewars(Integer offensivewars) {
-        this.offensivewars = offensivewars;
     }
 
     public Integer getDefensivewars() {
         return defensivewars;
     }
 
-    public void setDefensivewars(Integer defensivewars) {
-        this.defensivewars = defensivewars;
-    }
-
     public String getScore() {
         return score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
     }
 
     public String getVacmode() {
         return vacmode;
     }
 
-    public void setVacmode(String vacmode) {
-        this.vacmode = vacmode;
-    }
-
     public Integer getMinutessinceactive() {
         return minutessinceactive;
-    }
-
-    public void setMinutessinceactive(Integer minutessinceactive) {
-        this.minutessinceactive = minutessinceactive;
     }
 
     public String getInfrastructure() {
         return infrastructure;
     }
 
-    public void setInfrastructure(String infrastructure) {
-        this.infrastructure = infrastructure;
-    }
-
     public Integer getCityprojecttimerturns() {
         return cityprojecttimerturns;
-    }
-
-    public void setCityprojecttimerturns(Integer cityprojecttimerturns) {
-        this.cityprojecttimerturns = cityprojecttimerturns;
     }
 
     public String getBauxiteworks() {
         return bauxiteworks;
     }
 
-    public void setBauxiteworks(String bauxiteworks) {
-        this.bauxiteworks = bauxiteworks;
-    }
-
     public String getIronworks() {
         return ironworks;
-    }
-
-    public void setIronworks(String ironworks) {
-        this.ironworks = ironworks;
     }
 
     public String getArmsstockpile() {
         return armsstockpile;
     }
 
-    public void setArmsstockpile(String armsstockpile) {
-        this.armsstockpile = armsstockpile;
-    }
-
     public String getEmgasreserve() {
         return emgasreserve;
-    }
-
-    public void setEmgasreserve(String emgasreserve) {
-        this.emgasreserve = emgasreserve;
     }
 
     public String getMassirrigation() {
         return massirrigation;
     }
 
-    public void setMassirrigation(String massirrigation) {
-        this.massirrigation = massirrigation;
-    }
-
     public String getInttradecenter() {
         return inttradecenter;
-    }
-
-    public void setInttradecenter(String inttradecenter) {
-        this.inttradecenter = inttradecenter;
     }
 
     public String getMissilepad() {
         return missilepad;
     }
 
-    public void setMissilepad(String missilepad) {
-        this.missilepad = missilepad;
-    }
-
     public String getNuclearresfac() {
         return nuclearresfac;
-    }
-
-    public void setNuclearresfac(String nuclearresfac) {
-        this.nuclearresfac = nuclearresfac;
     }
 
     public String getIrondome() {
         return irondome;
     }
 
-    public void setIrondome(String irondome) {
-        this.irondome = irondome;
-    }
-
     public String getVitaldefsys() {
         return vitaldefsys;
-    }
-
-    public void setVitaldefsys(String vitaldefsys) {
-        this.vitaldefsys = vitaldefsys;
     }
 
     public String getIntagncy() {
         return intagncy;
     }
 
-    public void setIntagncy(String intagncy) {
-        this.intagncy = intagncy;
-    }
-
     public String getUraniumenrich() {
         return uraniumenrich;
-    }
-
-    public void setUraniumenrich(String uraniumenrich) {
-        this.uraniumenrich = uraniumenrich;
     }
 
     public String getPropbureau() {
         return propbureau;
     }
 
-    public void setPropbureau(String propbureau) {
-        this.propbureau = propbureau;
-    }
-
     public String getCenciveng() {
         return cenciveng;
-    }
-
-    public void setCenciveng(String cenciveng) {
-        this.cenciveng = cenciveng;
     }
 
     public String getMoney() {
         return money;
     }
 
-    public void setMoney(String money) {
-        this.money = money;
-    }
-
     public String getFood() {
         return food;
-    }
-
-    public void setFood(String food) {
-        this.food = food;
     }
 
     public String getCoal() {
         return coal;
     }
 
-    public void setCoal(String coal) {
-        this.coal = coal;
-    }
-
     public String getOil() {
         return oil;
-    }
-
-    public void setOil(String oil) {
-        this.oil = oil;
     }
 
     public String getUranium() {
         return uranium;
     }
 
-    public void setUranium(String uranium) {
-        this.uranium = uranium;
-    }
-
     public String getBauxite() {
         return bauxite;
-    }
-
-    public void setBauxite(String bauxite) {
-        this.bauxite = bauxite;
     }
 
     public String getIron() {
         return iron;
     }
 
-    public void setIron(String iron) {
-        this.iron = iron;
-    }
-
     public String getLead() {
         return lead;
-    }
-
-    public void setLead(String lead) {
-        this.lead = lead;
     }
 
     public String getGasoline() {
         return gasoline;
     }
 
-    public void setGasoline(String gasoline) {
-        this.gasoline = gasoline;
-    }
-
     public String getMunitions() {
         return munitions;
-    }
-
-    public void setMunitions(String munitions) {
-        this.munitions = munitions;
     }
 
     public String getAluminum() {
         return aluminum;
     }
 
-    public void setAluminum(String aluminum) {
-        this.aluminum = aluminum;
-    }
-
     public String getSteel() {
         return steel;
-    }
-
-    public void setSteel(String steel) {
-        this.steel = steel;
     }
 
     public String getCredits() {
         return credits;
     }
 
-    public void setCredits(String credits) {
-        this.credits = credits;
-    }
-
     public String getSoldiers() {
         return soldiers;
-    }
-
-    public void setSoldiers(String soldiers) {
-        this.soldiers = soldiers;
     }
 
     public String getTanks() {
         return tanks;
     }
 
-    public void setTanks(String tanks) {
-        this.tanks = tanks;
-    }
-
     public String getAircraft() {
         return aircraft;
-    }
-
-    public void setAircraft(String aircraft) {
-        this.aircraft = aircraft;
     }
 
     public String getShips() {
         return ships;
     }
 
-    public void setShips(String ships) {
-        this.ships = ships;
-    }
-
     public String getMissiles() {
         return missiles;
-    }
-
-    public void setMissiles(String missiles) {
-        this.missiles = missiles;
     }
 
     public String getNukes() {
         return nukes;
     }
 
-    public void setNukes(String nukes) {
-        this.nukes = nukes;
-    }
-
     public String getSpies() {
         return spies;
-    }
-
-    public void setSpies(String spies) {
-        this.spies = spies;
     }
 
     @Override
