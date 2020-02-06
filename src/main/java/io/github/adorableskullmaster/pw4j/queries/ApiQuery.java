@@ -2,6 +2,7 @@ package io.github.adorableskullmaster.pw4j.queries;
 
 import io.github.adorableskullmaster.pw4j.PoliticsAndWarAPIException;
 import io.github.adorableskullmaster.pw4j.core.Response;
+import io.github.adorableskullmaster.pw4j.core.Utility;
 import io.github.adorableskullmaster.pw4j.domains.Entity;
 import io.github.adorableskullmaster.pw4j.enums.QueryURL;
 
@@ -48,7 +49,7 @@ public class ApiQuery<T extends Entity> {
         stream = conn.getInputStream();
         return new Response<>(convertStreamToString(stream), t, urlStr);
       } else {
-        throw new PoliticsAndWarAPIException(respMessage);
+        throw new PoliticsAndWarAPIException(Utility.obfuscateApiKey(respMessage));
       }
     } finally {
       if(conn != null) {

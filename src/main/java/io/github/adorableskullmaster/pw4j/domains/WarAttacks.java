@@ -15,7 +15,7 @@ public class WarAttacks extends Entity {
     @Expose
     private List<WarAttacksContainer> warAttacksContainers = null;
 
-    public Boolean getSuccess() {
+    public Boolean isSuccess() {
         return success;
     }
 

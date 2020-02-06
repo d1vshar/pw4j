@@ -3,6 +3,7 @@ package io.github.adorableskullmaster.pw4j;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Properties;
 
 public class ExceptionTests {
@@ -13,9 +14,9 @@ public class ExceptionTests {
   public ExceptionTests() {
     try {
       Properties properties = new Properties();
-      properties.load(getClass().getClassLoader().getResourceAsStream("testData.properties"));
+      properties.load(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("testData.properties")));
       politicsAndWar = new PoliticsAndWarBuilder()
-          .setApiKey(properties.getProperty("apiKey"))
+          .addApiKey(properties.getProperty("apiKey"))
           .build();
       politicsAndWar2 = new PoliticsAndWarBuilder()
           .build();

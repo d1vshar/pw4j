@@ -16,7 +16,7 @@ public class AllianceMembers extends Entity {
     @Expose
     private List<AllianceMembersContainer> nations = null;
 
-    public Boolean getSuccess() {
+    public Boolean isSuccess() {
         return success;
     }
 

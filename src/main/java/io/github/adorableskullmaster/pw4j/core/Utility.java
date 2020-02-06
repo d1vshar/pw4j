@@ -1,8 +1,8 @@
 package io.github.adorableskullmaster.pw4j.core;
 
-class Utility {
+public class Utility {
 
-    static String obfuscateApiKey(String apiKeyStr) {
+    public static String obfuscateApiKey(String apiKeyStr) {
         int i = apiKeyStr.lastIndexOf("key=");
         if(i==-1)
             return apiKeyStr;

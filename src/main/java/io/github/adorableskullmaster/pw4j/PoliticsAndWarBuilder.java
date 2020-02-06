@@ -1,21 +1,30 @@
 package io.github.adorableskullmaster.pw4j;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class PoliticsAndWarBuilder {
 
   private boolean testServerMode;
-  private String apiKey;
+  private List<String> apiKeysList;
   private boolean enableCache;
   private int cacheSize = 50;
   private long cacheRetainTime = 60000;
 
   public PoliticsAndWarBuilder() {
     this.enableCache = false;
-    this.apiKey = null;
+    this.apiKeysList = new ArrayList<>();
     this.testServerMode = false;
   }
 
-  public PoliticsAndWarBuilder setApiKey(String apiKey) {
-    this.apiKey = apiKey;
+  public PoliticsAndWarBuilder addApiKey(String apiKey) {
+    this.apiKeysList.add(apiKey);
+    return this;
+  }
+
+  public PoliticsAndWarBuilder addApiKeys(String... apiKey) {
+    this.apiKeysList.addAll(Arrays.asList(apiKey));
     return this;
   }
 
@@ -37,6 +46,6 @@ public class PoliticsAndWarBuilder {
   }
 
   public PoliticsAndWar build() {
-    return new PoliticsAndWar(apiKey, enableCache, testServerMode, cacheSize, cacheRetainTime);
+    return new PoliticsAndWar(apiKeysList.toArray(new String[0]), enableCache, testServerMode, cacheSize, cacheRetainTime);
   }
 }
