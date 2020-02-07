@@ -21,8 +21,6 @@ public interface IPoliticsAndWar {
 
   Alliance getAlliance(int allianceId) throws IOException;
 
-  AllianceMembers getAllianceMembers(int allianceId) throws IOException;
-
   Alliances getAlliances() throws IOException;
 
   NationMilitary getAllMilitaries() throws IOException;
