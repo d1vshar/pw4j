@@ -1,10 +1,13 @@
 package io.github.adorableskullmaster.pw4j;
 
+import io.github.adorableskullmaster.pw4j.core.Utility;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Objects;
+import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -14,7 +17,16 @@ public class CacheTests {
   private PoliticsAndWar politicsAndWar;
 
   public CacheTests() {
-    politicsAndWar = new PoliticsAndWarBuilder().setEnableCache(true, 10, 60000).build();
+    try {
+      Properties properties = new Properties();
+      properties.load(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("testData.properties")));
+      politicsAndWar = new PoliticsAndWarBuilder()
+              .addApiKey(properties.getProperty("apiKey"))
+              .setEnableCache(true,10,60000)
+              .build();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   @Test

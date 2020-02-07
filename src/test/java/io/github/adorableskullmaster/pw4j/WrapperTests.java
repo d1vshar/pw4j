@@ -41,7 +41,7 @@ public class WrapperTests {
 
   @Test
   public void warQueryTest() throws IOException {
-    assertTrue(politicsAndWar.getWar(411593).isSuccess());
+    assertTrue(politicsAndWar.getWar(603294).isSuccess());
   }
 
   @Test
