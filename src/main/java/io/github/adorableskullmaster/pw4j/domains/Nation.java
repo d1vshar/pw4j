@@ -217,6 +217,21 @@ public class Nation extends Entity {
   @SerializedName("cenciveng")
   @Expose
   private String cenciveng;
+  @SerializedName("city_planning")
+  @Expose
+  private String city_planning;
+  @SerializedName("adv_city_planning")
+  @Expose
+  private String adv_city_planning;
+  @SerializedName("space_program")
+  @Expose
+  private String space_program;
+  @SerializedName("spy_satellite")
+  @Expose
+  private String spy_satellite;
+  @SerializedName("moon_landing")
+  @Expose
+  private String moon_landing;
   @SerializedName("vmode")
   @Expose
   private String vmode;
@@ -520,6 +535,26 @@ public class Nation extends Entity {
 
   public String getCenciveng() {
     return cenciveng;
+  }
+
+  public String getCity_planning() {
+    return city_planning;
+  }
+
+  public String getAdv_city_planning() {
+    return adv_city_planning;
+  }
+
+  public String getSpace_program() {
+    return space_program;
+  }
+
+  public String getSpy_satellite() {
+    return spy_satellite;
+  }
+
+  public String getMoon_landing() {
+    return moon_landing;
   }
 
   public String getVmode() {
