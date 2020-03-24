@@ -62,6 +62,11 @@ public class PoliticsAndWar implements IPoliticsAndWar {
   }
 
   @Override
+  public AllianceMembers getAllianceMembers(int allianceId) throws IOException {
+    return (AllianceMembers) execute(new AllianceMembersQuery(allianceId, apiKeyPool.getNextApiKey()).build());
+  }
+
+  @Override
   public Alliances getAlliances() throws IOException {
     return (Alliances) execute(new AlliancesQuery(apiKeyPool.getNextApiKey()).build());
   }
