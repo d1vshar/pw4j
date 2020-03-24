@@ -38,7 +38,7 @@ public class SNationContainer {
   private Integer cities;
   @SerializedName("infrastructure")
   @Expose
-  private Double infrastructure;
+  private Integer infrastructure;
   @SerializedName("offensivewars")
   @Expose
   private Integer offensivewars;
@@ -96,10 +96,6 @@ public class SNationContainer {
 
   public Integer getCities() {
     return cities;
-  }
-
-  public Double getInfrastructure() {
-    return infrastructure;
   }
 
   public Integer getOffensivewars() {
@@ -176,4 +172,11 @@ public class SNationContainer {
         '}';
   }
 
+  public Integer getInfrastructure() {
+    return infrastructure;
+  }
+
+  public void setInfrastructure(Integer infrastructure) {
+    this.infrastructure = infrastructure;
+  }
 }
